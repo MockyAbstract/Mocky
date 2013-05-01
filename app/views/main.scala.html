@@ -1,0 +1,28 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/select2.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/main.css")">
+        <!--<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("img/favicon.png")">-->
+
+        <script src="@routes.Assets.at("js/jquery-1.9.0.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("js/bootstrap.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("js/select2.min.js")" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container">
+
+            @content
+
+            <hr />
+            <footer>
+                <p>Made with <span class="strike">love</span> beer by <a href="https://www.twitter.com/studiodev">@@studiodev</a>. Be an awesome hacker, <a href="https://github.com/studiodev/Mocky" target="_blank">fork me</a>!</p>
+            </footer>
+        </div>
+    </body>
+</html>
