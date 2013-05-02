@@ -111,14 +111,16 @@
 
         $("#new-mocky-form").on('submit', function(e) {
             e.preventDefault();
+            _gaq.push(['_trackEvent', 'Mock', 'create', 'mock requested', , false]);
             $("#send-btn").text("@Messages("btn.wait")").attr("disabled", "disabled")
             $.post("/", $(this).serialize()+"&body="+editor.getSession().getValue())
              .done(function(data) {
-                console.log(data)
+                _gaq.push(['_trackEvent', 'Mock', 'success', 'mock created with success', , false]);
                 $("#feedback p").html('<strong>@Messages("alert.linkReady")</strong> <a href="'+data.url+'" target="blank">'+data.url+'</a>')
                 $("#feedback").addClass("alert-success").removeClass("alert-error");
              })
              .fail(function() {
+                _gaq.push(['_trackEvent', 'Mock', 'failed', 'error when creating mock', , false]);
                 $("#feedback p").html("@Messages("error.retry")")
                 $("#feedback").addClass("alert-error").removeClass("alert-success");
              })
