@@ -25,3 +25,4 @@ btn.basic=Mode basique
 btn.wait=Génération en cours ...
 
 eg=Ex :
+feedback=Une nouvelle idée ?
