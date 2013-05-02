@@ -5,6 +5,7 @@
 # Home page
 GET     /                           controllers.Application.index
 POST    /                           controllers.Application.save
+GET     /lang/:lang                 controllers.Application.setLang(lang)
 
 GET     /:v/:id                   controllers.Application.get(id, v)
 POST    /:v/:id                   controllers.Application.get(id, v)

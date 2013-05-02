@@ -1,0 +1,27 @@
+Mocky=Mocky
+
+title.home=Mocky: Real HTTP mocking
+
+presentation.baseline=Testez simplement vos Web Services REST avec Mocky, le générateur de réponses HTTP
+
+error.invalidForm=Formualaire invalide, merci de corriger les données invalides
+error.retry=Une erreur est survenue... Vous pouvez rééesayer, on sait jamais !
+
+alert.confidential=Attention, ne publiez pas d''informations confidentielles !
+alert.dataStored=Vos données seront stockées sur un
+alert.gist=Gist privé
+alert.linkReady=Votre lien permanent est prêt :
+
+form.legend=Paramétrer ma réponse HTTP
+form.code=Code HTTP
+form.location=Redirection
+form.contentType=Content Type
+form.customHeaders=Headers personnalisés
+form.body=Corps de la réponse
+
+btn.generate=Générer ma réponse HTTP
+btn.advanced=Mode expert
+btn.basic=Mode basique
+btn.wait=Génération en cours ...
+
+eg=Ex :

@@ -1,19 +1,24 @@
 package controllers
 
+import scala.concurrent.Future
+
 import play.api.libs.concurrent.Execution.Implicits._
 import play.api.libs.json._
-import scala.concurrent.Future
 import play.api._
 import play.api.mvc._
+import play.api.i18n.Lang
+import play.api.Play.current
 
 import models._
 import models.Gist._
+
+
 
 object Application extends Controller {
 
   private val defaultError = Future(InternalServerError)
 
-  def index = Action {
+  def index = Action { implicit req =>
     Ok(views.html.index(Mocker.formMocker))
   }
 
@@ -42,6 +47,10 @@ object Application extends Controller {
         ).fallbackTo(defaultError)
       }
     )
+  }
+
+  def setLang(lang: String) = Action { implicit request =>
+    Redirect(routes.Application.index()).withLang(Lang(lang))
   }
 
 }

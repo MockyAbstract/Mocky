@@ -1,7 +1,12 @@
+@()(implicit lang: Lang)
 <div class="hero-unit">
-    <h1>Mocky</h1>
-    <p>Generate custom HTTP responses, the simplest way to test your Web Services!</p>
-    <pre>&gt; GET http://mocky.herokuapps.com/<span>123456789</span></pre>
+    <div class="flags">
+        <a href="@routes.Application.setLang("fr")"><img src="@routes.Assets.at("img/flags/fr.png")" alt="FR" /></a>
+        <a href="@routes.Application.setLang("en")"><img src="@routes.Assets.at("img/flags/us.png")" alt="US" /></a>
+    </div>
+    <h1>@Messages("Mocky")</h1>
+    <p>@Messages("presentation.baseline")</p>
+    <pre>&gt; PUT http://mocky.herokuapps.com/<span>123456789</span></pre>
   <pre>< HTTP/1.1 200 OK
 < Content-Type: application/json; charset=UTF-8
 { "<span>hello</span>": "<span>world</span>" }</pre>

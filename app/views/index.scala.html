@@ -1,13 +1,13 @@
-@(form: play.api.data.Form[Mocker])
+@(form: play.api.data.Form[Mocker])(implicit lang: Lang)
 
-@main("Mocky: Real HTTP mocking") {
+@main {
 
 @partials.presentation()
 
 <form class="form-horizontal" action="/" method="post" id="new-mocky-form">
 
     @if(form.hasErrors) {
-        <div class="alert alert-error">Invalid form, please retry ;)</div>
+        <div class="alert alert-error">@Messages("error.invalidForm")</div>
     }
 
     <div class="alert" id="feedback">
@@ -15,26 +15,26 @@
         <p></p>
     </div>
     <div class="alert alert-info" id="confidential-alert">
-        <strong>Do not publish confidential information!</strong> Your data will be stored in a <a href="https://gist.github.com/" target="_blank">private gist <img src="@routes.Assets.at("img/octocat.png")" /></a>
+        <strong>@Messages("alert.confidential")</strong> @Messages("alert.dataStored") <a href="https://gist.github.com/" target="_blank">@Messages("alert.gist") <img src="@routes.Assets.at("img/octocat.png")" /></a>
     </div>
 
     <fieldset>
-        <legend>Generate your custom response</legend>
+        <legend>@Messages("form.legend")</legend>
 
         <div class="control-group">
-            <label class="control-label" for="statusCode">Status Code</label>
+            <label class="control-label" for="statusCode">@Messages("form.code")</label>
             <div class="controls">
                 <input type="text" id="statusCode" name="statuscode"  />
             </div>
         </div>
         <div class="control-group hide" id="location-block">
-            <label class="control-label" for="location">Location</label>
+            <label class="control-label" for="location">@Messages("form.location")</label>
             <div class="controls">
                 <input type="text" id="location" name="location" placeholder="Redirect URI" class="input-xlarge" />
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="contentType">ContentType</label>
+            <label class="control-label" for="contentType">@Messages("form.contentType")</label>
             <div class="controls">
                 <input type="text" id="contentType" name="contenttype" />
                 &nbsp;
@@ -44,7 +44,7 @@
 
         <div class="advanced-block hide">
             <div class="control-group">
-                <label class="control-label" for="editor">Custom headers</label>
+                <label class="control-label" for="editor">@Messages("form.customHeaders")</label>
                 <div class="controls" id="advanced-block-inner">
                     <p class="clone">
                         <input class="span2" type="text" name="headerNames[]"> :
@@ -53,13 +53,13 @@
                     </p>
                 </div>
                 <div class="controls">
-                    <span class="help-block">Eg: ETag, If-None-Match, Expires, Last-Modified, Server, X-Cache, Cache-Control,<br /> X-Frame-Options, Server, Set-Cookie, X-UA-Compatible...</span>
+                    <span class="help-block">@Messages("eg") ETag, If-None-Match, Expires, Last-Modified, Server, X-Cache, Cache-Control,<br /> X-Frame-Options, Server, Set-Cookie, X-UA-Compatible...</span>
                 </div>
             </div>
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="editor">Body</label>
+            <label class="control-label" for="editor">@Messages("form.body")</label>
             <div class="controls">
                 <div id="editor"></div>
             </div>
@@ -67,8 +67,8 @@
 
         <div class="control-group">
             <div class="controls">
-                <button type="submit" class="btn btn-primary" id="send-btn">Generate my HTTP Response</button>
-                <a href="#" class="btn btn-advanced-mode">Switch to advanced mode</a>
+                <button type="submit" class="btn btn-primary" id="send-btn">@Messages("btn.generate")</button>
+                <a href="#" class="btn btn-advanced-mode">@Messages("btn.advanced")</a>
             </div>
         </div>
     </fieldset>
@@ -111,19 +111,19 @@
 
         $("#new-mocky-form").on('submit', function(e) {
             e.preventDefault();
-            $("#send-btn").text("A dwarf will handle your request, please wait...").attr("disabled", "disabled")
+            $("#send-btn").text("@Messages("btn.wait")").attr("disabled", "disabled")
             $.post("/", $(this).serialize()+"&body="+editor.getSession().getValue())
              .done(function(data) {
                 console.log(data)
-                $("#feedback p").html('<strong>Your link is ready :</strong> <a href="'+data.url+'" target="blank">'+data.url+'</a>')
+                $("#feedback p").html('<strong>@Messages("alert.linkReady")</strong> <a href="'+data.url+'" target="blank">'+data.url+'</a>')
                 $("#feedback").addClass("alert-success").removeClass("alert-error");
              })
              .fail(function() {
-                $("#feedback p").html("An error occured... please retry !")
+                $("#feedback p").html("@Messages("error.retry")")
                 $("#feedback").addClass("alert-error").removeClass("alert-success");
              })
              .always(function() {
-                $("#send-btn").text("Generate my HTTP Response").attr("disabled", null)
+                $("#send-btn").text("@Messages("btn.generate")").attr("disabled", null)
                 $("#feedback").show()
                 $("#confidential-alert").hide()
              })
@@ -152,10 +152,10 @@
             var $block = $(".advanced-block")
             if ($block.is(":visible")) {
                 $block.hide();
-                $(".btn-advanced-mode").text("Switch to advanced mode")
+                $(".btn-advanced-mode").text("@Messages("btn.advanced")")
             } else {
                 $block.show();
-                $(".btn-advanced-mode").text("Switch to basic mode")
+                $(".btn-advanced-mode").text("@Messages("btn.basic")")
             }
         })
 
