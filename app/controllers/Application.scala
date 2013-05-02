@@ -17,7 +17,7 @@ object Application extends Controller {
     Ok(views.html.index(Mocker.formMocker))
   }
 
-  def get(id: String) = Action {
+  def get(id: String, version: String) = Action {
     val data = for {
       gist <- Gist.get(id)
       content <- gist.fetchContent()
@@ -38,7 +38,7 @@ object Application extends Controller {
       error => BadRequest(views.html.index(error)),
       mock => Async {
         Gist.create(mock).map(res =>
-          Ok(Json.obj("url" -> routes.Application.get(res.id).absoluteURL(false)))
+          Ok(Json.obj("url" -> routes.Application.get(res.id, Mocker.version).absoluteURL(false)))
         ).fallbackTo(defaultError)
       }
     )

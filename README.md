@@ -20,7 +20,7 @@ Try me now! http://mocky.herokuapp.com
 * Paramétrage etags **OK**
 
 #### V2.1
-* Permettre d'entrer des charset/status/contentType personnalisés
+* Permettre d'entrer des charset/status/contentType personnalisés **OK**
 * Substitution de variable (post, get, ip)
 
 #### V3

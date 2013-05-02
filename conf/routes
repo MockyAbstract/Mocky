@@ -6,13 +6,14 @@
 GET     /                           controllers.Application.index
 POST    /                           controllers.Application.save
 
-GET     /beta/:id                   controllers.Application.get(id)
-POST    /beta/:id                   controllers.Application.get(id)
-PUT     /beta/:id                   controllers.Application.get(id)
-PATCH   /beta/:id                   controllers.Application.get(id)
-HEAD    /beta/:id                   controllers.Application.get(id)
-DELETE  /beta/:id                   controllers.Application.get(id)
-OPTIONS /beta/:id                   controllers.Application.get(id)
+GET     /:v/:id                   controllers.Application.get(id, v)
+POST    /:v/:id                   controllers.Application.get(id, v)
+PUT     /:v/:id                   controllers.Application.get(id, v)
+PATCH   /:v/:id                   controllers.Application.get(id, v)
+HEAD    /:v/:id                   controllers.Application.get(id, v)
+DELETE  /:v/:id                   controllers.Application.get(id, v)
+OPTIONS /:v/:id                   controllers.Application.get(id, v)
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
