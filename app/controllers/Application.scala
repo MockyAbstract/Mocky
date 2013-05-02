@@ -17,6 +17,7 @@ import models.Gist._
 object Application extends Controller {
 
   private val defaultError = Future(InternalServerError)
+  lazy val assetVersion = current.configuration.getString("assets.version").getOrElse("")
 
   def index = Action { implicit req =>
     Ok(views.html.index(Mocker.formMocker))
