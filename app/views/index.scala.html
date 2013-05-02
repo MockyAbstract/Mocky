@@ -24,82 +24,7 @@
         <div class="control-group">
             <label class="control-label" for="statusCode">Status Code</label>
             <div class="controls">
-                <select id="statusCode" name="statuscode">
-                    <optgroup label="Provisional response">
-                        <option value="100">100 Continue</option>
-                        <option value="101">101 Switching Protocols</option>
-                        <option value="102">102 Processing</option>
-                    </optgroup>
-                    <optgroup label="Successful">
-                        <option value="200" class="main" selected>200 OK</option>
-                        <option value="201" class="main">201 Created</option>
-                        <option value="202">202 Accepted</option>
-                        <option value="203">203 Non-Authoritative Information</option>
-                        <option value="204" class="main">204 No Content</option>
-                        <option value="205">205 Reset Content</option>
-                        <option value="206">206 Partial Content</option>
-                        <option value="207">207 Multi-Status</option>
-                        <option value="208">208 Already Reported</option>
-                        <option value="226">226 IM Used</option>
-                    </optgroup>
-                    <optgroup label="Redirected">
-                        <option value="300" data-location="true">300 Multiple Choices</option>
-                        <option value="301" data-location="true">301 Moved Permanently</option>
-                        <option value="302" data-location="true">302 Found</option>
-                        <option value="303" data-location="true">303 See Other</option>
-                        <option value="304" data-location="true">304 Not Modified</option>
-                        <option value="305" data-location="true">305 Use Proxy</option>
-                        <option value="306" data-location="true">306 Switch Proxy</option>
-                        <option value="307" data-location="true">307 Temporary Redirect</option>
-                        <option value="308" data-location="true">308 Permanent Redirect</option>
-                    </optgroup>
-                    <optgroup label="Request error">
-                        <option value="400" class="main">400 Bad Request</option>
-                        <option value="401">401 Unauthorized</option>
-                        <option value="402">402 Payment Required</option>
-                        <option value="403" class="main">403 Forbidden</option>
-                        <option value="404" class="main">404 Not Found</option>
-                        <option value="405">405 Method Not Allowed</option>
-                        <option value="406">406 Not Acceptable</option>
-                        <option value="407">407 Proxy Authentication Required</option>
-                        <option value="408">408 Request Timeout</option>
-                        <option value="409">409 Conflict</option>
-                        <option value="410">410 Gone</option>
-                        <option value="411">411 Length Required</option>
-                        <option value="412">412 Precondition Failed</option>
-                        <option value="413">413 Request Entity Too Large</option>
-                        <option value="414">414 Request-URI Too Long</option>
-                        <option value="415">415 Unsupported Media Type</option>
-                        <option value="416">416 Requested Range Not Satisfiable</option>
-                        <option value="417">417 Expectation Failed</option>
-                        <option value="418">418 I'm a teapot</option>
-                        <option value="420">420 Enhance Your Calm</option>
-                        <option value="422">422 Unprocessable Entity</option>
-                        <option value="423">423 Locked</option>
-                        <option value="424">424 Failed Dependency</option>
-                        <option value="425">425 Unordered Collection</option>
-                        <option value="426">426 Upgrade Required</option>
-                        <option value="428">428 Precondition Required</option>
-                        <option value="429">429 Too Many Requests</option>
-                        <option value="431">431 Request Header Fields Too Large</option>
-                        <option value="444">444 No Response</option>
-                        <option value="449">449 Retry With</option>
-                        <option value="450">450 Blocked by Windows Parental Controls</option>
-                        <option value="499">499 Client Closed Request</option>
-                    </optgroup>
-                    <optgroup label="Server error">
-                        <option value="500" class="main">500 Internal Server Error</option>
-                        <option value="501">501 Not Implemented</option>
-                        <option value="502">502 Bad Gateway</option>
-                        <option value="503" class="main">503 Service Unavailable</option>
-                        <option value="504">504 Gateway Timeout</option>
-                        <option value="505">505 HTTP Version Not Supported</option>
-                        <option value="506">506 Variant Also Negotiates</option>
-                        <option value="507">507 Insufficient Storage</option>
-                        <option value="509">509 Bandwidth Limit Exceeded</option>
-                        <option value="510">510 Not Extended</option>
-                    </optgroup>
-                </select>
+                <input type="text" id="statusCode" name="statuscode"  />
             </div>
         </div>
         <div class="control-group hide" id="location-block">
@@ -111,25 +36,9 @@
         <div class="control-group">
             <label class="control-label" for="contentType">ContentType</label>
             <div class="controls">
-                <select id="contentType" name="contenttype">
-                    <option value="application/json" data-lang="json" selected>application/json</option>
-                    <option value="application/xml" data-lang="xml">application/xml</option>
-                    <option value="application/xhtml+xml" data-lang="html">application/xhtml+xml</option>
-                    <option value="text/plain" data-lang="text">text/plain</option>
-                    <option value="text/html" data-lang="html">text/html</option>
-                    <option value="text/xml" data-lang="xml">text/xml</option>
-                    <option value="text/json" data-lang="json">text/json</option>
-                    <option value="text/css" data-lang="css">text/css</option>
-                    <option value="text/csv" data-lang="text">text/csv</option>
-                    <option value="application/x-www-form-urlencoded" data-lang="text">application/x-www-form-urlencoded</option>
-                    <option value="multipart/form-data" data-lang="text">multipart/form-data</option>
-                </select>
+                <input type="text" id="contentType" name="contenttype" />
                 &nbsp;
-                <select id="charset" name="charset">
-                    <option value="UTF-8">UTF-8</option>
-                    <option value="ISO-8859-1">ISO-8859-1</option>
-                    <option value="UTF-16">UTF-16</option>
-                </select>
+                <input type="text" id="charset" name="charset" />
             </div>
         </div>
 
@@ -166,12 +75,39 @@
 </form>
 
 <script type="text/javascript">
+
+    $("#statusCode").select2({
+        createSearchChoice: function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
+        multiple: false,
+        width: "element",
+        data: [@Referentials.codes.zipWithIndex.map{ case ((code, name), index) =>
+            { id: @code, text: "@code @Html(name)" } @if(index+1<Referentials.codes.size){,}
+        }]
+    })
+    $("#statusCode").select2('data', {id: 200, text:"200 OK"})
+
+    $("#charset").select2({
+        createSearchChoice: function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
+        multiple: false,
+        width: "element",
+        data: [@Referentials.charsets.zipWithIndex.map{ case (charset, index) =>
+            { id: "@Html(charset)", text: "@Html(charset)" } @if(index+1<Referentials.charsets.size){,}
+        }]
+    })
+    $("#charset").select2('data', { id: "UTF-8", text: "UTF-8" })
+
+    $("#contentType").select2({
+        createSearchChoice: function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
+        multiple: false,
+        width: "element",
+        data: [@Referentials.contentTypes.zipWithIndex.map{ case ((contenttype, lang), index) =>
+            { id: "@Html(contenttype)", text: "@Html(contenttype)" } @if(index+1<Referentials.contentTypes.size){,}
+        }]
+    })
+    $("#contentType").select2('data', { id: "application/json", text: "application/json" })
+
     $(function() {
         var editor = initNewEditor("editor");
-
-        $("select").select2({
-            width: "element"
-        });
 
         $("#new-mocky-form").on('submit', function(e) {
             e.preventDefault();
@@ -180,11 +116,11 @@
              .done(function(data) {
                 console.log(data)
                 $("#feedback p").html('<strong>Your link is ready :</strong> <a href="'+data.url+'" target="blank">'+data.url+'</a>')
-                $("#feedback").addClass("alert-success");
+                $("#feedback").addClass("alert-success").removeClass("alert-error");
              })
              .fail(function() {
                 $("#feedback p").html("An error occured... please retry !")
-                $("#feedback").addClass("alert-error");
+                $("#feedback").addClass("alert-error").removeClass("alert-success");
              })
              .always(function() {
                 $("#send-btn").text("Generate my HTTP Response").attr("disabled", null)
@@ -194,21 +130,21 @@
         })
 
         $("#contentType").on("change", function() {
-            var option = this.selectedOptions[0]
-            if (option) {
-                var lang = $(option).data("lang")
-                changeEditorLanguage(lang)
+            var ct = $(this).val()
+            switch (ct) {
+                @Referentials.contentTypes.map{ case (contentType, lang) =>
+                    case "@Html(contentType)": changeEditorLanguage("@Html(lang)"); break;
+                }
+                default: changeEditorLanguage("text"); break;
             }
         })
 
         $("#statusCode").on("change", function() {
-            var option = this.selectedOptions[0]
-            if (option) {
-                if ($(option).data("location")) {
-                    $("#location-block").show();
-                } else {
-                    $("#location-block").hide().find("input").val("")
-                }
+            var code = $(this).val()
+            if (code.length > 0 && code[0]=="3") {
+                $("#location-block").show();
+            } else {
+                $("#location-block").hide().find("input").val("")
             }
         })
 
