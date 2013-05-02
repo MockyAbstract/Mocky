@@ -5,7 +5,14 @@
 # Home page
 GET     /                           controllers.Application.index
 POST    /                           controllers.Application.save
+
 GET     /beta/:id                   controllers.Application.get(id)
+POST    /beta/:id                   controllers.Application.get(id)
+PUT     /beta/:id                   controllers.Application.get(id)
+PATCH   /beta/:id                   controllers.Application.get(id)
+HEAD    /beta/:id                   controllers.Application.get(id)
+DELETE  /beta/:id                   controllers.Application.get(id)
+OPTIONS /beta/:id                   controllers.Application.get(id)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
