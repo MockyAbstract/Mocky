@@ -2,7 +2,10 @@
 <div class="hero-unit">
     <div class="flags">
         <a href="@routes.Application.setLang("fr")"><img src="@routes.Assets.at("img/flags/fr.png")" alt="FR" /></a>
-        <a href="@routes.Application.setLang("en")"><img src="@routes.Assets.at("img/flags/us.png")" alt="US" /></a>
+        <a href="@routes.Application.setLang("en")"><img src="@routes.Assets.at("img/flags/us.png")" alt="US" /></a><br />
+
+        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://www.mocky.io" data-related="studiodev" data-via="studiodev" data-text="Mock your HTTP responses to test your REST API">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
     <h1>@Messages("Mocky")</h1>
     <h2>@Messages("presentation.baseline")</h2>
