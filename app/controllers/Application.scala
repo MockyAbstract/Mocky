@@ -10,8 +10,7 @@ import play.api.i18n.Lang
 import play.api.Play.current
 
 import models._
-import models.Gist._
-
+import services.{MongoRepository, GithubRepository}
 
 
 object Application extends Controller {
@@ -24,17 +23,10 @@ object Application extends Controller {
   }
 
   def get(id: String, version: String) = Action {
-    val data = for {
-      gist <- Gist.get(id)
-      content <- gist.fetchContent()
-      metadata <- gist.fetchMetadata()
-    } yield (content, metadata)
-
     Async {
-      data.map {
-        case (content, metadata) =>
-          Status(metadata.status)(Content.decode(content, metadata.charset))
-            .withHeaders(metadata.headers.toSeq: _*)
+      getRepository(version).getMockFromId(id).map { mock =>
+        Status(mock.metadata.status)(ContentUtil.decode(mock.content, mock.metadata.charset))
+          .withHeaders(mock.metadata.headers.toSeq: _*)
       }.fallbackTo(defaultError)
     }
   }
@@ -43,8 +35,8 @@ object Application extends Controller {
     Mocker.formMocker.bindFromRequest().fold(
       error => BadRequest(views.html.index(error)),
       mock => Async {
-        Gist.create(mock).map(res =>
-          Ok(Json.obj("url" -> routes.Application.get(res.id, Mocker.version).absoluteURL(false)))
+        MongoRepository.save(mock).map(id =>
+          Ok(Json.obj("url" -> routes.Application.get(id, Mocker.version).absoluteURL(false)))
         ).fallbackTo(defaultError)
       }
     )
@@ -52,6 +44,13 @@ object Application extends Controller {
 
   def setLang(lang: String) = Action { implicit request =>
     Redirect(routes.Application.index()).withLang(Lang(lang))
+  }
+
+  private def getRepository(version: String) = {
+    version match {
+      case "beta" | "v1" => GithubRepository
+      case _ => MongoRepository
+    }
   }
 
 }

@@ -6,7 +6,11 @@ import play.api.data.Forms._
 import play.api.data.validation.Constraints._
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
+import models.MockResponse._
 
+/**
+ * Map client Form data
+ */
 case class Mocker(
   status: Int,
   contentType: String,
@@ -33,7 +37,6 @@ object Mocker {
   )
 
   def toGist(mocker: Mocker): Gist = {
-    import Gist._
 
     val headers = Map(
       "Content-Type" -> Some(s"${mocker.contentType}; charset=${mocker.charset.toLowerCase}"),
@@ -48,7 +51,7 @@ object Mocker {
     Gist(
       description = "Powered by Mocky",
       files = Map(
-        "content" -> GistFile(Content.encode(mocker.body, "utf-8")),
+        "content" -> GistFile(ContentUtil.encode(mocker.body, "utf-8")),
         "metadata" -> GistFile(Json.stringify(Json.toJson(Metadata(
           mocker.status,
           mocker.charset,
