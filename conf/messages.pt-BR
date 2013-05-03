@@ -1,0 +1,29 @@
+Mocky=Mocky
+
+title.home=Mocky: Real HTTP mocking
+presentation.baseline=Teste sua API REST com respostas HTTP reais
+
+error.invalidForm=Formulário inválido, por favor, tente novamente  ;)
+error.retry=Ocorreu um erro... por favor, tente novamente !
+
+alert.confidential=Não publique informações confidenciais!
+alert.dataStored=Seus dados serão gravados em um
+alert.gist=gist privado
+alert.linkReady=Seu link está pronto:
+
+form.legend=Gere sua resposta customizada
+form.code=Status Code
+form.location=Location
+form.contentType=Content Type
+form.customHeaders=Custom headers
+form.body=Body
+
+btn.generate=Gerar minha resposta HTTP
+btn.advanced=Mudar para o modo avançado
+btn.basic=Mudar para o modo básico
+btn.wait=Um anão está cuidando de seu desejo, por favor, aguarde...
+
+eg=Ex:
+feedback=Dê um feedback!
+
+overloaded=Mocky está <strong>um pouco sobrecarregado</strong> devido ao lançamento oficial, obrigado por ser paciente. Estamos trabalhando duro para melhorar a qualidade do serviço, uma <strong>nova arquitetura</strong> será lançada em breve!
