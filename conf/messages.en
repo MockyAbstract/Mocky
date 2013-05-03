@@ -1,7 +1,7 @@
 Mocky=Mocky
 
 title.home=Mocky: Real HTTP mocking
-presentation.baseline=Generate custom HTTP responses, the simplest way to test your REST Web Services!
+presentation.baseline=Mock your HTTP responses to test your REST API
 
 error.invalidForm=Invalid form, please retry ;)
 error.retry=An error occured... please retry !
