@@ -1,34 +1,23 @@
 # Mocky
 
-> Generate custom HTTP responses, the simpler way to test your Web Services!
+> Mock your HTTP responses to test your REST API
 
 ## Demo
 
-Try me now! http://mocky.herokuapp.com
+Try me now! http://www.mocky.io
 
-## Roadmap
+## License
 
-#### V1
-* Formulaire création d'une nouvelle HTTPResponse (body, status, contentType) **OK**
-  * Validation **OK**
-* Enregistrement du Mocky dans un gist **OK**
-* Générer le Mocky à partir d'un gistID **OK**
-* Afficher le Mocky généré **OK**
+DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+Version 2, December 2004 
 
-#### V2
-* Ajout de la Location pour les redirection **OK**
-* Paramétrage etags **OK**
+Copyright (C) 2004 Sam Hocevar <sam@hocevar.net> 
 
-#### V2.1
-* Permettre d'entrer des charset/status/contentType personnalisés **OK**
-* Substitution de variable (post, get, ip)
+Everyone is permitted to copy and distribute verbatim or modified 
+copies of this license document, and changing it is allowed as long 
+as the name is changed. 
 
-#### V3
-* Cloner un Mocky
-* Envoyer un gist avec mon compte Github
-* Retrouver les Mocky générés avec mon compte github
+DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION 
 
-#### Icebox
-* Filtrer en fonction de la requête envoyée
-* Contenu binaire
-
+0. You just DO WHAT THE FUCK YOU WANT TO.
