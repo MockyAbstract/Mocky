@@ -10,13 +10,7 @@ GET     /lang/:lang                 controllers.Application.setLang(lang)
 GET     /referentials/http.js       controllers.Js.http
 GET     /referentials/i18n.js       controllers.Js.i18n
 
-GET     /:v/:id                   controllers.Application.get(id, v)
-POST    /:v/:id                   controllers.Application.get(id, v)
-PUT     /:v/:id                   controllers.Application.get(id, v)
-PATCH   /:v/:id                   controllers.Application.get(id, v)
-HEAD    /:v/:id                   controllers.Application.get(id, v)
-DELETE  /:v/:id                   controllers.Application.get(id, v)
-OPTIONS /:v/:id                   controllers.Application.get(id, v)
+GET     /$v<[a-z0-9]+>/$id<[a-z0-9]+> controllers.Application.get(id, v)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
