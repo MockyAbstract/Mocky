@@ -114,7 +114,8 @@
             e.preventDefault();
             _gaq.push(['_trackEvent', 'Mock', 'create', 'mock requested', , false]);
             $("#send-btn").text("@Messages("btn.wait")").attr("disabled", "disabled")
-            $.post("/", $(this).serialize()+"&body="+editor.getSession().getValue())
+            var body = $(this).serializeArray().concat({name: "body", value: editor.getSession().getValue()})
+            $.post("/", body)
              .done(function(data) {
                 _gaq.push(['_trackEvent', 'Mock', 'success', 'mock created with success', , false]);
                 $("#feedback p").html('<strong>@Messages("alert.linkReady")</strong> <a href="'+data.url+'" target="blank">'+data.url+'</a>')
