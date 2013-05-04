@@ -18,11 +18,25 @@ case class Mocker(
   location: Option[String],
   body: String,
   headerNames: List[String],
-  headerValues: List[String])
+  headerValues: List[String]) {
+
+  def headers = {
+    val headers = Map(
+      "Content-Type" -> Some(s"${contentType}; charset=${charset.toLowerCase}"),
+      "Location" -> location
+    ).filter(_._2.isDefined).mapValues(_.get)
+
+    val customheaders = headerNames.zip(headerValues).flatMap {
+      case (name, value) if !name.trim.isEmpty && !value.trim.isEmpty => Some(name -> value)
+      case _ => None
+    }.toMap
+
+    headers ++ customheaders
+  }
+
+}
 
 object Mocker {
-
-  lazy val version = current.configuration.getString("version").getOrElse("undefined")
 
   val formMocker = Form(
     mapping(
@@ -36,29 +50,4 @@ object Mocker {
     )(Mocker.apply)(Mocker.unapply)
   )
 
-  def toGist(mocker: Mocker): Gist = {
-
-    val headers = Map(
-      "Content-Type" -> Some(s"${mocker.contentType}; charset=${mocker.charset.toLowerCase}"),
-      "Location" -> mocker.location
-    ).filter(_._2.isDefined).mapValues(_.get)
-
-    val customheaders = mocker.headerNames.zip(mocker.headerValues).flatMap {
-      case (name, value) if !name.trim.isEmpty && !value.trim.isEmpty => Some(name -> value)
-      case _ => None
-    }.toMap
-
-    Gist(
-      description = "Powered by Mocky",
-      files = Map(
-        "content" -> GistFile(ContentUtil.encode(mocker.body, "utf-8")),
-        "metadata" -> GistFile(Json.stringify(Json.toJson(Metadata(
-          mocker.status,
-          mocker.charset,
-          headers ++ customheaders,
-          version
-        ))))
-      )
-    )
-  }
 }

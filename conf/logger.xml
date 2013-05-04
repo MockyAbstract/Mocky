@@ -4,13 +4,14 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%coloredLevel %date{yyyy-MM-dd HH:mm:ss} - %boldWhite(%logger) - %.20thread %gray(\(%file:%line\)) %n%message%n%xException%n</pattern>
+            <pattern>%coloredLevel %date{yyyy-MM-dd HH:mm:ss} - %logger - %.20thread \(%file:%line\) %n%message%n%xException%n</pattern>
         </encoder>
     </appender>
 
     <logger name="play" level="INFO" />
 
-    <logger name="ws" level="DEBUG" />
+    <logger name="ws.mongo" level="DEBUG" />
+    <logger name="ws.github" level="DEBUG" />
 
     <root level="ERROR">
         <appender-ref ref="STDOUT" />
