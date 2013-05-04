@@ -18,14 +18,13 @@ import play.api.Play.current
 
 import models.{Metadata, Mocker, MockResponse}
 import models.MockResponse._
-import com.ning.http.util.Base64
 
 object MongoRepository extends IRepository {
 
-  implicit val logger = LoggerFactory.getLogger("ws.mongo")
+  private val logger = LoggerFactory.getLogger("ws.mongo")
 
-  val db = ReactiveMongoPlugin.db
-  lazy val collection = db[BSONCollection]("mocks")
+  private val db = ReactiveMongoPlugin.db
+  private lazy val collection = db[BSONCollection]("mocks")
 
   val addMongoId =  __.json.update((__ \ '_id).json.put(Json.toJson(BSONObjectID.generate)))
 

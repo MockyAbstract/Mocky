@@ -10,8 +10,7 @@ import play.api.i18n.Lang
 import play.api.Play.current
 
 import models._
-import services.{Repository, MongoRepository, GithubRepository}
-
+import services.Repository
 
 object Application extends Controller {
 

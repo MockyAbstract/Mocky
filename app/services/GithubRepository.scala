@@ -14,7 +14,7 @@ import com.ning.http.util.Base64
 
 object GithubRepository extends IRepository {
 
-  implicit val logger = LoggerFactory.getLogger("ws.github")
+  private val logger = LoggerFactory.getLogger("ws.github")
 
   def getMockFromId(id: String): Future[MockResponse] = {
     for {
