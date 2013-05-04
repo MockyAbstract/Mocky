@@ -1,28 +1,29 @@
 @(content: Html)(implicit lang: Lang)
+@import play.api.Play.current;
+
+@min = {@if(play.api.Play.isDev){}else{.min}}
 
 <!DOCTYPE html>
 
 <html>
     <head>
         <title>@Messages("title.home")</title>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at(s"css/bootstrap.min.css")">
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/select2.css")">
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at(s"css/main.css?${Application.assetVersion}")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at(s"img/favicon.png?${Application.assetVersion}")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at(s"img/favicon.png")">
 
-        <script src="@routes.Assets.at("js/jquery-1.9.0.min.js")" type="text/javascript"></script>
-        <script src="@routes.Assets.at("js/bootstrap.min.js")" type="text/javascript"></script>
-        <script src="@routes.Assets.at("js/select2.min.js")" type="text/javascript"></script>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at(s"css/main$min.css")">
+        <script src="@routes.Assets.at(s"js/jquery-1.9.1.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at(s"js/select2.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at(s"js/lodash-1.2.1.min.js")" type="text/javascript"></script>
     </head>
     <body>
         <div class="container">
-
             @content
-
             <hr />
             <footer>
-                <p></p>
-                <p><strong class="alert alert-success">Hosting sponsored by <a href="https://www.runscope.com/" target="_blank">Runscope</a></strong> Made with <span class="strike">love</span> beer by <a href="https://www.twitter.com/studiodev" target="_blank">@@studiodev</a>. Be an awesome hacker, <a href="https://github.com/studiodev/Mocky" target="_blank">fork me <img src="@routes.Assets.at("img/octocat.png")" /></a></p>
+                <p><strong class="alert alert-success">Hosting sponsored by <a href="https://www.runscope.com/" target="_blank">Runscope</a></strong>
+                    Made with <span class="strike">love</span> beer by <a href="https://www.twitter.com/studiodev" target="_blank">@@studiodev</a>.
+                    Be an awesome hacker, <a href="https://github.com/studiodev/Mocky" target="_blank">fork me <img src="@routes.Assets.at("img/octocat.png")" /></a>
+                </p>
             </footer>
         </div>
 
@@ -38,19 +39,11 @@
         })();
         </script>
 
-        <script type="text/javascript">(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/nIFm1w8BswV6OuuCXMdbAw.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})()</script>
-        <script type="text/javascript">
-            UserVoice = window.UserVoice || [];
-            UserVoice.push(['showTab', 'classic_widget', {
-                mode: 'feedback',
-                primary_color: '#64add1',
-                link_color: '#007dbf',
-                forum_id: 205182,
-                tab_label: "@Messages("feedback")",
-                tab_color: '#64add1',
-                tab_position: 'bottom-right',
-                tab_inverted: false
-            }]);
-        </script>
+        <script src="@routes.Js.i18n()" type="text/javascript"></script>
+        <script src="@routes.Js.http()" type="text/javascript"></script>
+        <script src="@routes.Assets.at("js/main.js")" type="text/javascript"></script>
+
+        <script src="@routes.Assets.at("js/ace/ace.js")" type="text/javascript"></script>
+        <script type="text/javascript" src="@routes.Assets.at(s"js/uservoices$min.js")"></script>
     </body>
 </html>

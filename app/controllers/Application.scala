@@ -15,7 +15,6 @@ import services.Repository
 object Application extends Controller {
 
   private val defaultError = Future(InternalServerError)
-  lazy val assetVersion = current.configuration.getString("assets.version").getOrElse("")
 
   def index = Action { implicit req =>
     if (req.host == "mocky.herokuapp.com")

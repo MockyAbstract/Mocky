@@ -7,6 +7,9 @@ GET     /                           controllers.Application.index
 POST    /                           controllers.Application.save
 GET     /lang/:lang                 controllers.Application.setLang(lang)
 
+GET     /referentials/http.js       controllers.Js.http
+GET     /referentials/i18n.js       controllers.Js.i18n
+
 GET     /:v/:id                   controllers.Application.get(id, v)
 POST    /:v/:id                   controllers.Application.get(id, v)
 PUT     /:v/:id                   controllers.Application.get(id, v)

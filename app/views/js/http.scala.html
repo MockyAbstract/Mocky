@@ -1,0 +1,10 @@
+@import play.api.libs.json.Json;
+(function(referential, undefined){
+
+    referentials.codes = @Html(Json.stringify(Json.toJson(Referentials.codes.map(r => r._1.toString -> r._2))))
+
+    referentials.contentTypes = @Html(Json.stringify(Json.toJson(Referentials.contentTypes)))
+
+    referentials.charsets = @Html(Json.stringify(Json.toJson(Referentials.charsets)))
+
+}(window.referentials = window.referentials || {}));
