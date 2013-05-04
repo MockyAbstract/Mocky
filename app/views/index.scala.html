@@ -152,7 +152,8 @@
             }
         })
 
-        $(".btn-advanced-mode").on("click", function() {
+        $(".btn-advanced-mode").on("click", function(e) {
+            e.preventDefault()
             var $block = $(".advanced-block")
             if ($block.is(":visible")) {
                 $block.hide();
