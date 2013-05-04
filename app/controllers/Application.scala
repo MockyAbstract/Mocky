@@ -18,7 +18,10 @@ object Application extends Controller {
   lazy val assetVersion = current.configuration.getString("assets.version").getOrElse("")
 
   def index = Action { implicit req =>
-    Ok(views.html.index(Mocker.formMocker))
+    if (req.host == "mocky.herokuapp.com")
+      Redirect("http://www.mocky.io", 301)
+    else
+      Ok(views.html.index(Mocker.formMocker))
   }
 
   def get(id: String, version: String) = Action {
