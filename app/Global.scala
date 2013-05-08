@@ -1,7 +1,11 @@
 import play.api._
 import play.api.mvc._
 
-object Global extends GlobalSettings {
+import play.api.mvc.WithFilters
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import julienrf.play.jsonp.Jsonp
+
+object Global extends  WithFilters(new Jsonp) {
 
   override def onRouteRequest(request: RequestHeader): Option[Handler] = {
     super.onRouteRequest(request).orElse {
