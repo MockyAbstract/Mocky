@@ -28,3 +28,5 @@ eg=Ex :
 feedback=Une nouvelle idée ?
 
 overloaded=Mocky est légèrement surchargé en raison de son lancement officiel. Merci d'être patient, nous travaillons dur à améliorer la qualité du service.
+
+news.jsonp=Mocky supporte maintenant <strong>JSONP</strong> ! Ajoutez simplement <strong>?callback=myfunction</strong> à vos liens.

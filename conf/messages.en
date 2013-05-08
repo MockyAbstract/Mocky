@@ -27,3 +27,5 @@ eg=Eg:
 feedback=Give feedback!
 
 overloaded=Mocky is <strong>slightly overloaded</strong> due to the official release, thank you for being patient. We are working hard to improve the quality of service, a <strong>new architecture</strong> will be released soon!
+
+news.jsonp=Now with <strong>JSONP</strong> support, just add <strong>?callback=myfunction</strong> to your links.
