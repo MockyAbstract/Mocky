@@ -16,3 +16,4 @@ dist
 .cache
 .target
 bin
+data
