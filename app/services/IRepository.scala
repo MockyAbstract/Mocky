@@ -19,6 +19,7 @@ object Repository {
   def apply(version: String) = {
     version match {
       case "beta" | "v1" => GithubRepository
+      case "fs" => FileSystemRepository
       case _ => MongoRepository
     }
   }
