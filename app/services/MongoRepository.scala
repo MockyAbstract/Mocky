@@ -16,17 +16,17 @@ import play.api.libs.concurrent.Execution.Implicits._
 import play.api.libs.json._
 import play.api.Play.current
 
-import models.{ Metadata, Mocker, MockResponse }
+import models.{Metadata, Mocker, MockResponse}
 import models.MockResponse._
 
-trait MongoRepository extends IRepository {
+object MongoRepository extends IRepository {
 
   private val logger = LoggerFactory.getLogger("ws.mongo")
 
   private val db = ReactiveMongoPlugin.db
   private lazy val collection = db[BSONCollection]("mocks")
 
-  val addMongoId = __.json.update((__ \ '_id).json.put(Json.toJson(BSONObjectID.generate)))
+  val addMongoId =  __.json.update((__ \ '_id).json.put(Json.toJson(BSONObjectID.generate)))
 
   def getMockFromId(id: String): Future[MockResponse] = {
     val q = Json.obj("_id" -> Json.obj("$oid" -> id))
@@ -39,13 +39,13 @@ trait MongoRepository extends IRepository {
     }
   }
 
-  def saveMock(mock: Mocker): Future[String] = {
-    val metadata = Metadata(mock.status, mock.charset, mock.headers, injectedControllers.version)
+  def save(mock: Mocker): Future[String] = {
+    val metadata = Metadata(mock.status, mock.charset, mock.headers, Repository.version)
     val mockResponse = MockResponse(encodeBody(mock.body), metadata)
 
     Json.toJson(mockResponse).transform(addMongoId).map { jsobj =>
 
-      collection.insert[JsValue](jsobj).map { p =>
+      collection.insert[JsValue](jsobj).map{ p =>
         if (p.inError)
           MongoDbException(s"Cannot insert Mock in DB ($p)")
         else

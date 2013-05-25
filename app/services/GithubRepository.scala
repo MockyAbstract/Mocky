@@ -12,7 +12,7 @@ import models.Gist._
 import models.MockResponse._
 import com.ning.http.util.Base64
 
-trait GithubRepository extends IRepository {
+object GithubRepository extends IRepository {
 
   private val logger = LoggerFactory.getLogger("ws.github")
 
@@ -24,7 +24,7 @@ trait GithubRepository extends IRepository {
     } yield MockResponse(content, metadata)
   }
 
-  def saveMock(mock: Mocker): Future[String] = {
+  def save(mock: Mocker): Future[String] = {
     val body = Json.toJson(toGist(mock))
     val url = "https://api.github.com/gists"
     WS.url(url).post(body).flatMap(parseGistResponse).map(_.id)
@@ -39,7 +39,10 @@ trait GithubRepository extends IRepository {
           mocker.status,
           mocker.charset,
           mocker.headers,
-          injectedControllers.version))))))
+          Repository.version
+        ))))
+      )
+    )
   }
 
   private def parseGistResponse(response: play.api.libs.ws.Response): Future[GistResponse] = {
@@ -85,7 +88,7 @@ trait GithubRepository extends IRepository {
     s"(${r.status}) ${r.body}})"
   }
 
-  def encodeBody(content: String, charset: String): String = Base64.encode(("|" + content).getBytes(charset))
+  def encodeBody(content: String, charset: String): String = Base64.encode(("|"+content).getBytes(charset))
 
   def decodeBody(content: String, charset: String): String = new String(Base64.decode(content).drop(1), charset)
 }

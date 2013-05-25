@@ -12,7 +12,7 @@ import scala.concurrent.future
 import play.api.libs.concurrent.Execution.Implicits._
 import scala.io.Source
 
-trait FileSystemRepository extends IRepository {
+object FileSystemRepository extends IRepository {
 
   private val outputDirectory = play.api.Play.current.configuration.getString("outputDir").getOrElse("data")
 
@@ -23,9 +23,9 @@ trait FileSystemRepository extends IRepository {
     }
   }
 
-  def saveMock(mock: Mocker): Future[String] = {
+  def save(mock: Mocker): Future[String] = {
     future {
-      val metadata = Metadata(mock.status, mock.charset, mock.headers, injectedControllers.version)
+      val metadata = Metadata(mock.status, mock.charset, mock.headers, Repository.version)
       val mockResponse = MockResponse(encodeBody(mock.body), metadata)
 
       val id = UUID.randomUUID().toString().replaceAll("-", "")
