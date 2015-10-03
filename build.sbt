@@ -13,7 +13,6 @@ includeFilter in (Assets, LessKeys.less) := "*.less"
 libraryDependencies ++= Seq(
   ws,
   cache,
-  "org.reactivemongo" %% "reactivemongo" % "0.11.7",
   "org.reactivemongo" %% "play2-reactivemongo" % "0.11.7.play24",
   "org.julienrf" %% "play-jsonp-filter" % "1.2",
   "org.julienrf" %% "play-jsmessages" % "2.0.0"
