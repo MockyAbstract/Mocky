@@ -1,41 +1,38 @@
 package services
 
 import scala.concurrent.Future
-import org.slf4j.LoggerFactory
+import scala.util.control.NonFatal
 
-import reactivemongo.api._
-import reactivemongo.bson._
-import reactivemongo.bson.DefaultBSONHandlers._
-import reactivemongo.api.collections.default.BSONCollection
-
-import play.modules.reactivemongo._
-import play.modules.reactivemongo.json.ImplicitBSONHandlers._
-import play.modules.reactivemongo.json.BSONFormats._
-
+import play.api.Play.current
 import play.api.libs.concurrent.Execution.Implicits._
 import play.api.libs.json._
-import play.api.Play.current
+import play.modules.reactivemongo.ReactiveMongoApi
+import play.modules.reactivemongo.json._
+import play.modules.reactivemongo.json.collection.{JSONCollection, _}
+import org.slf4j.LoggerFactory
 
-import models.{Metadata, Mocker, MockResponse}
 import models.MockResponse._
+import models.{Metadata, MockResponse, Mocker}
+import reactivemongo.api._
+import reactivemongo.bson.BSONObjectID
 
 object MongoRepository extends IRepository {
 
   private val logger = LoggerFactory.getLogger("ws.mongo")
 
-  private val db = ReactiveMongoPlugin.db
-  private lazy val collection = db[BSONCollection]("mocks")
+  private lazy val reactiveMongoApi = current.injector.instanceOf[ReactiveMongoApi] // Oh yearhhh
+  private lazy val collection = reactiveMongoApi.db[JSONCollection]("mocks")
 
-  val addMongoId =  __.json.update((__ \ '_id).json.put(Json.toJson(BSONObjectID.generate)))
+  val addMongoIdTransformer =  __.json.update((__ \ '_id).json.put(Json.toJson(BSONObjectID.generate)))
 
   def getMockFromId(id: String): Future[MockResponse] = {
-    val q = Json.obj("_id" -> Json.obj("$oid" -> id))
-    collection.find[JsValue](q).one.map {
-      case Some(obj) => {
-        (obj: JsValue).validate[MockResponse]
-          .getOrElse(MongoDbException(s"Cannot convert entity $id"))
-      }
-      case _ => MongoDbException(s"Mock $id not found")
+    val query = Json.obj("_id" -> Json.obj("$oid" -> id))
+    val cursor: Cursor[MockResponse] = collection.find(query).cursor[MockResponse](ReadPreference.nearest)
+    val mocksList: Future[Option[MockResponse]] = cursor.headOption
+
+    mocksList.flatMap {
+      case Some(mock) => Future.successful(mock)
+      case _ => Future.failed(new RuntimeException(s"Mock $id not found"))
     }
   }
 
@@ -43,17 +40,22 @@ object MongoRepository extends IRepository {
     val metadata = Metadata(mock.status, mock.charset, mock.headers, Repository.version)
     val mockResponse = MockResponse(encodeBody(mock.body), metadata)
 
-    Json.toJson(mockResponse).transform(addMongoId).map { jsobj =>
-
-      collection.insert[JsValue](jsobj).map{ p =>
-        if (p.inError)
-          MongoDbException(s"Cannot insert Mock in DB ($p)")
-        else
-          jsobj.transform((__ \ '_id).json.pick).map(_.as[BSONObjectID].stringify)
-            .getOrElse(MongoDbException(s"Cannot retrieve inserted Mock in db ($p)"))
-      }
+    Json.toJson(mockResponse)
+      .transform(addMongoIdTransformer)
+      .map { jsobj =>
+        collection.insert[JsObject](jsobj).map { p =>
+          if (p.inError)
+            throw new RuntimeException(s"Cannot insert Mock in DB ($p)")
+          else
+            jsobj.transform((__ \ '_id).json.pick).map(_.as[BSONObjectID].stringify)
+              .getOrElse(throw new RuntimeException(s"Cannot retrieve inserted Mock in db ($p)"))
+        }.recoverWith {
+          case NonFatal(ex) =>
+            logger.error("Cannot save new mock into mongodb", ex)
+            Future.failed(new RuntimeException("Cannot save mock"))
+        }
     }.recoverTotal {
-      case e => MongoDbException(s"Cannot transform mock object ($e)")
+      case e => Future.failed(new RuntimeException(s"Cannot transform mock object ($e)"))
     }
   }
 
@@ -61,10 +63,4 @@ object MongoRepository extends IRepository {
   def decodeBody(content: String, charset: String) = content
   def encodeBody(content: String, charset: String) = content
 
-  object MongoDbException {
-    def apply(msg: String) = {
-      logger.error(msg)
-      throw new RuntimeException(msg)
-    }
-  }
 }

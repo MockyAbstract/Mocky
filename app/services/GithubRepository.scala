@@ -4,8 +4,9 @@ import scala.concurrent.Future
 import org.slf4j.LoggerFactory
 
 import play.api.libs.concurrent.Execution.Implicits._
-import play.api.libs.ws.WS
+import play.api.libs.ws.{WSResponse, WS}
 import play.api.libs.json.Json
+import play.api.Play.current
 
 import models._
 import models.Gist._
@@ -45,7 +46,7 @@ object GithubRepository extends IRepository {
     )
   }
 
-  private def parseGistResponse(response: play.api.libs.ws.Response): Future[GistResponse] = {
+  private def parseGistResponse(response: WSResponse): Future[GistResponse] = {
     if (response.status < 400) {
       logger.debug(s"<< (${response.status}) ${response.body}")
       response.json.validate[GistResponse].fold(
@@ -60,7 +61,7 @@ object GithubRepository extends IRepository {
     }
   }
 
-  private def parseMetadata(response: play.api.libs.ws.Response): Future[Metadata] = {
+  private def parseMetadata(response: WSResponse): Future[Metadata] = {
     if (response.status < 400) {
       logger.debug(s"<< (${response.status}) ${response.body}")
       response.json.validate[Metadata].fold(
@@ -75,7 +76,7 @@ object GithubRepository extends IRepository {
     }
   }
 
-  private def parseContent(response: play.api.libs.ws.Response): Future[String] = {
+  private def parseContent(response: WSResponse): Future[String] = {
     if (response.status < 400)
       Future.successful(response.body)
     else {
@@ -84,7 +85,7 @@ object GithubRepository extends IRepository {
     }
   }
 
-  private def debugResponse(r: play.api.libs.ws.Response) = {
+  private def debugResponse(r: WSResponse) = {
     s"(${r.status}) ${r.body}})"
   }
 

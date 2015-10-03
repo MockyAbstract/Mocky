@@ -1,20 +1,16 @@
-@(content: Html)(implicit lang: Lang)
-@import play.api.Play.current;
-@import services.CDN
-
-@min = {@if(play.api.Play.isDev){}else{.min}}
+@(content: Html)(implicit messages: Messages)
 
 <!DOCTYPE html>
 
 <html>
     <head>
         <title>@Messages("title.home")</title>
-        <link rel="shortcut icon" type="image/png" href="@CDN.at(s"img/favicon.png")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned(s"img/favicon.png")">
 
-        <link rel="stylesheet" media="screen" href="@CDN.at(s"css/main$min.css")">
-        <script src="@CDN.at(s"js/jquery-1.9.1.min.js")" type="text/javascript"></script>
-        <script src="@CDN.at(s"js/select2.min.js")" type="text/javascript"></script>
-        <script src="@CDN.at(s"js/lodash-1.2.1.min.js")" type="text/javascript"></script>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned(s"stylesheets/main.css")">
+        <script src="@routes.Assets.versioned(s"js/jquery-1.9.1.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned(s"js/select2.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned(s"js/lodash-1.2.1.min.js")" type="text/javascript"></script>
     </head>
     <body>
         <div class="container">
@@ -23,7 +19,7 @@
             <footer>
                 <p><strong class="alert alert-success">Hosting sponsored by <a href="https://www.runscope.com/" target="_blank">Runscope</a></strong>
                     Made with <span class="strike">love</span> beer by <a href="https://www.twitter.com/studiodev" target="_blank">@@studiodev</a>.
-                    Be an awesome hacker, <a href="https://github.com/studiodev/Mocky" target="_blank">fork me <img src="@CDN.at("img/octocat.png")" /></a>
+                    Be an awesome hacker, <a href="https://github.com/studiodev/Mocky" target="_blank">fork me <img src="@routes.Assets.versioned("img/octocat.png")" /></a>
                 </p>
             </footer>
         </div>
@@ -42,9 +38,9 @@
 
         <script src="@routes.Js.i18n()" type="text/javascript"></script>
         <script src="@routes.Js.http()" type="text/javascript"></script>
-        <script src="@CDN.at(s"js/main$min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned(s"js/main.js")" type="text/javascript"></script>
 
-        <script src="@routes.Assets.at("js/ace/ace.js")" type="text/javascript"></script>
-        <script type="text/javascript" src="@CDN.at(s"js/uservoices$min.js")"></script>
+        <script src="@routes.Assets.versioned("js/ace/ace.js")" type="text/javascript"></script>
+        <script type="text/javascript" src="@routes.Assets.versioned(s"js/uservoices.js")"></script>
     </body>
 </html>
