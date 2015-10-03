@@ -17,14 +17,14 @@ object FileSystemRepository extends IRepository {
   private val outputDirectory = play.api.Play.current.configuration.getString("outputDir").getOrElse("data")
 
   def getMockFromId(id: String): Future[MockResponse] = {
-    future {
+    Future {
       val fileContent = Source.fromFile(s"$outputDirectory/$id").mkString
       Json.parse(fileContent).as[MockResponse]
     }
   }
 
   def save(mock: Mocker): Future[String] = {
-    future {
+    Future {
       val metadata = Metadata(mock.status, mock.charset, mock.headers, Repository.version)
       val mockResponse = MockResponse(encodeBody(mock.body), metadata)
 
