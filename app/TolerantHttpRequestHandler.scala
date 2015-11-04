@@ -15,10 +15,11 @@ class TolerantHttpRequestHandler @Inject() (
   messagesApi: MessagesApi)
     extends DefaultHttpRequestHandler(router, errorHandler, configuration, filters) {
 
+  // Authorize url with any data AFTER the version/id
+  private val RegexMock = """/([a-zA-Z0-9]+)/([a-z0-9]+).*""".r
+      
   override def routeRequest(request: RequestHeader) = {
     super.routeRequest(request).orElse {
-      // Authorize url with any data AFTER the version/id
-      val RegexMock = """/([a-zA-Z0-9]+)/([a-z0-9]+).*""".r
       request.path match {
         case RegexMock(version, id) => Some(new _root_.controllers.Application(messagesApi).get(id, version))
         case _ => None
