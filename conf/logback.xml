@@ -9,11 +9,13 @@
     </appender>
 
     <logger name="play" level="INFO" />
+    <logger name="application" level="DEBUG" />
 
     <logger name="ws.mongo" level="DEBUG" />
     <logger name="ws.github" level="DEBUG" />
+    <logger name="reactivemongo" level="INFO" />
 
-    <root level="ERROR">
+    <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
 
