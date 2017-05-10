@@ -28,17 +28,17 @@ $(function() {
 
     $("#new-mocky-form").on('submit', function(e) {
         e.preventDefault();
-        _gaq.push(['_trackEvent', 'Mock', 'create', 'mock requested', , false]);
+        //_gaq.push(['_trackEvent', 'Mock', 'create', 'mock requested', , false]);
         $("#send-btn").text(I18n("btn.wait")).attr("disabled", "disabled")
         var body = $(this).serializeArray().concat({name: "body", value: editor.getSession().getValue()})
         $.post("/", body)
             .done(function(data) {
-                _gaq.push(['_trackEvent', 'Mock', 'success', 'mock created with success', , false]);
+                //_gaq.push(['_trackEvent', 'Mock', 'success', 'mock created with success', , false]);
                 $("#feedback p").html('<strong>'+I18n("alert.linkReady")+'</strong> <a href="'+data.url+'" target="blank">'+data.url+'</a>')
                 $("#feedback").addClass("alert-success").removeClass("alert-error");
             })
             .fail(function() {
-                _gaq.push(['_trackEvent', 'Mock', 'failed', 'error when creating mock', , false]);
+                //_gaq.push(['_trackEvent', 'Mock', 'failed', 'error when creating mock', , false]);
                 $("#feedback p").html(I18n("error.retry"))
                 $("#feedback").addClass("alert-error").removeClass("alert-success");
             })
