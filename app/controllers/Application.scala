@@ -5,7 +5,7 @@ import scala.concurrent.duration._
 import javax.inject.Inject
 
 import akka.pattern.after
-import play.api.http.ContentTypes
+import play.api.http.{ContentTypes, HeaderNames}
 import play.api.i18n.{I18nSupport, Lang}
 import play.api.libs.json._
 import play.api.mvc._
@@ -21,7 +21,12 @@ class Application @Inject()(cc: ControllerComponents, dispatcher: RepositoryDisp
   private val defaultError = Future(InternalServerError)
 
   def index = Action { implicit req =>
-    Ok(views.html.index(Mocker.formMocker))
+    val isHttps = req.headers.get(HeaderNames.X_FORWARDED_PROTO).contains("https")
+
+    if (isHttps)
+      Ok(views.html.index(Mocker.formMocker))
+    else
+      Redirect("https://www.mocky.io", 301)
   }
 
   def get(id: String, version: String) = Action.async { implicit request =>

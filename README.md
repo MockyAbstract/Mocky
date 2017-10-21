@@ -9,7 +9,7 @@ or when you want to test your WS client.
 
 Yes, Mocky is online, free and unlimited!
 
-**Try me now! http://www.mocky.io**
+**Try me now! https://www.mocky.io**
 
 *Everything is done to provide the best service quality, but I don't guarantee the sustainability or the stability of the application.*
 
