@@ -16,11 +16,8 @@ class Application @Inject()(cc: ControllerComponents, dispatcher: RepositoryDisp
 
   private val defaultError = Future(InternalServerError)
 
-  def index = Action { implicit req =>
-    if (req.host == "mocky.herokuapp.com")
-      Redirect("http://www.mocky.io", 301)
-    else
-      Ok(views.html.index(Mocker.formMocker))
+  def index = Action {
+    Ok(views.html.index(Mocker.formMocker))
   }
 
   def get(id: String, version: String) = Action.async { request =>
