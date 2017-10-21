@@ -45,7 +45,7 @@ $(function() {
             .always(function() {
                 $("#send-btn").text(I18n("btn.generate")).attr("disabled", null)
                 $("#feedback").show()
-                $("#confidential-alert").hide()
+                $(".confidential-alert").hide()
             })
     })
 

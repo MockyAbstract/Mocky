@@ -28,7 +28,8 @@ feedback=Give feedback!
 
 overloaded=Mocky is <strong>slightly overloaded</strong> due to the official release, thank you for being patient. We are working hard to improve the quality of service, a <strong>new architecture</strong> will be released soon!
 
-news=You can now simulate a delay by adding <strong>?mocky-delay=100ms</strong> to your response (<a href="https://github.com/scala/scala/blob/v2.9.3/src/library/scala/concurrent/duration/Duration.scala#L76">format</a> / max: 60s)
+news1=You can now simulate a delay by adding <strong>?mocky-delay=100ms</strong> to your response (<a href="https://github.com/scala/scala/blob/v2.9.3/src/library/scala/concurrent/duration/Duration.scala#L76">format</a> / max: 60s).
+news2=<strong>CORS</strong> <em>Preflight</em> requests are automatically accepted from any origin.
 
 tips.header=Tips
 
@@ -37,3 +38,6 @@ tips.jsonp.body=Add <code>?callback=myfunction</code> to your mocky URL to enabl
 
 tips.delay.title=Response delay
 tips.delay.body=Add <code>?mocky-delay=100ms</code> to delay responding (<a href="https://github.com/scala/scala/blob/v2.9.3/src/library/scala/concurrent/duration/Duration.scala#L76">format</a> / max: 60s).
+
+tips.cors.title=CORS
+tips.cors.body=All CORS prpeflight requests are automatically accepted from any origin.
