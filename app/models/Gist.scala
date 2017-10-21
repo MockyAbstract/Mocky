@@ -20,10 +20,10 @@ case class GistResponse(
 
 object Gist {
 
-  implicit val gistFileFormat = Json.format[GistFile]
-  implicit val gistFormat = Json.format[Gist]
-  implicit val gistResponseWriter = Json.writes[GistResponse]
-  implicit val gistResponseReader = (
+  implicit val gistFileFormat: OFormat[GistFile] = Json.format[GistFile]
+  implicit val gistFormat: OFormat[Gist] = Json.format[Gist]
+  implicit val gistResponseWriter: OWrites[GistResponse] = Json.writes[GistResponse]
+  implicit val gistResponseReader: Reads[GistResponse] = (
     (__ \ "url").read[String] and
     (__ \ "id").read[String] and
     (__ \ "description").read[String] and
