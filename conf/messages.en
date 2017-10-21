@@ -28,4 +28,12 @@ feedback=Give feedback!
 
 overloaded=Mocky is <strong>slightly overloaded</strong> due to the official release, thank you for being patient. We are working hard to improve the quality of service, a <strong>new architecture</strong> will be released soon!
 
-news.jsonp=Now with <strong>JSONP</strong> support, just add <strong>?callback=myfunction</strong> to your links.
+news=You can now simulate a delay by adding <strong>?mocky-delay=100ms</strong> to your response (<a href="https://github.com/scala/scala/blob/v2.9.3/src/library/scala/concurrent/duration/Duration.scala#L76">format</a> / max: 60s)
+
+tips.header=Tips
+
+tips.jsonp.title=Jsonp Support
+tips.jsonp.body=Add <code>?callback=myfunction</code> to your mocky URL to enable jsonp.
+
+tips.delay.title=Response delay
+tips.delay.body=Add <code>?mocky-delay=100ms</code> to delay responding (<a href="https://github.com/scala/scala/blob/v2.9.3/src/library/scala/concurrent/duration/Duration.scala#L76">format</a> / max: 60s).
