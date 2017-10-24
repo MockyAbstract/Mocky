@@ -40,4 +40,4 @@ tips.delay.title=Response delay
 tips.delay.body=Add <code>?mocky-delay=100ms</code> to delay responding (<a href="https://github.com/scala/scala/blob/v2.9.3/src/library/scala/concurrent/duration/Duration.scala#L76">format</a> / max: 60s).
 
 tips.cors.title=CORS
-tips.cors.body=All CORS prpeflight requests are automatically accepted from any origin.
+tips.cors.body=All CORS preflight requests are automatically accepted from any origin.
