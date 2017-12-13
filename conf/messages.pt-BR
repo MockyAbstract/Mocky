@@ -11,7 +11,7 @@ alert.dataStored=Seus dados serão gravados em um
 alert.gist=gist privado
 alert.linkReady=Seu link está pronto:
 
-form.legend=Gere sua resposta customizada
+form.legend=Gere sua resposta customizada, mas lembre-se seu mock não é eterno!
 form.code=Status Code
 form.location=Location
 form.contentType=Content Type

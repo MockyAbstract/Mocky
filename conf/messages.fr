@@ -12,7 +12,7 @@ alert.dataStored=Vos données seront stockées sur un
 alert.gist=Gist privé
 alert.linkReady=Votre lien permanent est prêt :
 
-form.legend=Paramétrer ma réponse HTTP
+form.legend=Générer votre réponse personnalisée, mais souvenez-vous de votre mock ce n'est pas éternelle!
 form.code=Code HTTP
 form.location=Redirection
 form.contentType=Content Type
