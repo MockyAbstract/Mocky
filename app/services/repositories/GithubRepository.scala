@@ -1,34 +1,33 @@
-package services
+package services.repositories
 
-import scala.concurrent.Future
-import org.slf4j.LoggerFactory
+import scala.concurrent.{ExecutionContext, Future}
+import java.util.Base64
 
-import play.api.libs.concurrent.Execution.Implicits._
-import play.api.libs.ws.{WSResponse, WS}
 import play.api.libs.json.Json
-import play.api.Play.current
+import play.api.libs.ws.{WSClient, WSResponse}
+import org.slf4j.LoggerFactory
 
 import models._
 import models.Gist._
 import models.MockResponse._
-import com.ning.http.util.Base64
+import services.IRepository
 
-object GithubRepository extends IRepository {
+class GithubRepository(currentVersion: String, client: WSClient) (implicit ec: ExecutionContext) extends IRepository {
 
   private val logger = LoggerFactory.getLogger("ws.github")
 
   def getMockFromId(id: String): Future[MockResponse] = {
     for {
-      gist <- WS.url(s"https://api.github.com/gists/$id").get.flatMap(parseGistResponse)
-      content <- WS.url(gist.contentUrl).get.flatMap(parseContent)
-      metadata <- WS.url(gist.metadataUrl).get.flatMap(parseMetadata)
+      gist <- client.url(s"https://api.github.com/gists/$id").get.flatMap(parseGistResponse)
+      content <- client.url(gist.contentUrl).get.flatMap(parseContent)
+      metadata <- client.url(gist.metadataUrl).get.flatMap(parseMetadata)
     } yield MockResponse(content, metadata)
   }
 
   def save(mock: Mocker): Future[String] = {
     val body = Json.toJson(toGist(mock))
     val url = "https://api.github.com/gists"
-    WS.url(url).post(body).flatMap(parseGistResponse).map(_.id)
+    client.url(url).post(body).flatMap(parseGistResponse).map(_.id)
   }
 
   private def toGist(mocker: Mocker): Gist = {
@@ -40,7 +39,7 @@ object GithubRepository extends IRepository {
           mocker.status,
           mocker.charset,
           mocker.headers,
-          Repository.version
+          currentVersion
         ))))
       )
     )
@@ -89,7 +88,7 @@ object GithubRepository extends IRepository {
     s"(${r.status}) ${r.body}})"
   }
 
-  def encodeBody(content: String, charset: String): String = Base64.encode(("|"+content).getBytes(charset))
+  def encodeBody(content: String, charset: String): String = new String(Base64.getEncoder.encode(("|"+content).getBytes(charset)), charset)
 
-  def decodeBody(content: String, charset: String): String = new String(Base64.decode(content).drop(1), charset)
+  def decodeBody(content: String, charset: String): String = new String(Base64.getDecoder.decode(content).drop(1), charset)
 }

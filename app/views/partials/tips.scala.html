@@ -1,0 +1,14 @@
+@()(implicit messages: Messages)
+
+<h3>@messages("tips.header")</h3>
+
+<dl class="dl-horizontal">
+    <dt>@messages("tips.jsonp.title")</dt>
+    <dd>@Html(messages("tips.jsonp.body"))</dd>
+
+    <dt>@messages("tips.delay.title")</dt>
+    <dd>@Html(messages("tips.delay.body"))</dd>
+
+    <dt>@messages("tips.cors.title")</dt>
+    <dd>@Html(messages("tips.cors.body"))</dd>
+</dl>

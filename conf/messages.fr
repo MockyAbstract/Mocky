@@ -29,4 +29,17 @@ feedback=Une nouvelle idée ?
 
 overloaded=Mocky est légèrement surchargé en raison de son lancement officiel. Merci d'être patient, nous travaillons dur à améliorer la qualité du service.
 
-news.jsonp=Mocky supporte maintenant <strong>JSONP</strong> ! Ajoutez simplement <strong>?callback=myfunction</strong> à vos liens.
+news1=Vous pouvez maintenant simuler un délais dans la réponse en ajoutant le paramètre <strong>?mocky-delay=100ms</strong> (<a href="https://github.com/scala/scala/blob/v2.9.3/src/library/scala/concurrent/duration/Duration.scala#L76">format</a> / max: 60s).
+news2=Les requêtes de <em>Preflight</em> <strong>CORS</strong> sont automatiquement acceptées sans restriction d''origine.
+
+
+tips.header=Astuces
+
+tips.jsonp.title=Support Jsonp
+tips.jsonp.body=Ajoutez <code>?callback=myfunction</code> à votre url Mocky pour activer jsonp.
+
+tips.delay.title=Délais de rpéonse
+tips.delay.body=Ajoutez le paramètre <code>?mocky-delay=100ms</code> pour simulaire un délais de réponse (<a href="https://github.com/scala/scala/blob/v2.9.3/src/library/scala/concurrent/duration/Duration.scala#L76">format</a> / max: 60s).
+
+tips.cors.title=CORS
+tips.cors.body=Les requêtes CORS de Preflight sont automatiquement acceptées sans restriction d''origine
