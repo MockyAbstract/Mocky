@@ -41,3 +41,6 @@ tips.delay.body=Add <code>?mocky-delay=100ms</code> to delay responding (<a href
 
 tips.cors.title=CORS
 tips.cors.body=All CORS preflight requests are automatically accepted from any origin.
+
+tips.echo.title=Echo
+tips.jsonp.body=Add <code>?echo=true</code> to your mocky URL to return request body as response.

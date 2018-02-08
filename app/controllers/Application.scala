@@ -32,9 +32,13 @@ class Application @Inject()(cc: ControllerComponents, dispatcher: RepositoryDisp
   def get(id: String, version: String) = Action.async { implicit request =>
     val repo = dispatcher(version)
     val responseFromMock = prepareMockResponse(repo, request) _
-
-    val response = repo.getMockFromId(id).map(responseFromMock).fallbackTo(defaultError)
-    addDelay(response)
+      Future {
+        Ok(request.body.tolerantJson.toString())
+      }(ec)
+    } else {
+      val response = repo.getMockFromId(id).map(responseFromMock).fallbackTo(defaultError)
+      addDelay(response)
+    }
   }
 
   private def prepareMockResponse(repo: IRepository, req: RequestHeader)(mock: MockResponse): Result = {

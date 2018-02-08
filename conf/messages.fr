@@ -43,3 +43,6 @@ tips.delay.body=Ajoutez le paramètre <code>?mocky-delay=100ms</code> pour simul
 
 tips.cors.title=CORS
 tips.cors.body=Les requêtes CORS de Preflight sont automatiquement acceptées sans restriction d''origine
+
+tips.echo.title=Echo
+tips.jsonp.body=Ajoutez le paramètre <code>?echo=true</code>
