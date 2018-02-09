@@ -45,4 +45,4 @@ tips.cors.title=CORS
 tips.cors.body=Les requêtes CORS de Preflight sont automatiquement acceptées sans restriction d''origine
 
 tips.echo.title=Echo
-tips.jsonp.body=Ajoutez le paramètre <code>?echo=true</code>
+tips.echo.body=Ajoutez le paramètre <code>?echo=true</code> à votre URL pour que le serveur renvoie en réponse votre payload
