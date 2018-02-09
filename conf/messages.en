@@ -43,4 +43,4 @@ tips.cors.title=CORS
 tips.cors.body=All CORS preflight requests are automatically accepted from any origin.
 
 tips.echo.title=Echo
-tips.jsonp.body=Add <code>?echo=true</code> to your mocky URL to return request body as response.
+tips.echo.body=Add <code>?echo=true</code> to your mocky URL to return request body as response.
