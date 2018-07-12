@@ -33,7 +33,7 @@ class Application @Inject()(cc: ControllerComponents, dispatcher: RepositoryDisp
     val repo = dispatcher(version)
     val responseFromMock = prepareMockResponse(repo, request) _
       Future {
-        Ok(request.body.tolerantJson.toString())
+        Ok(request.body.tolerantJson.toString()).withHeaders(mock.metadata.headersWithoutContentType: _*)
       }(ec)
     } else {
       val response = repo.getMockFromId(id).map(responseFromMock).fallbackTo(defaultError)
