@@ -4,8 +4,8 @@ title.home=Mocky: Real HTTP mocking
 
 presentation.baseline=Testez simplement vos Web Services REST avec Mocky, le générateur de réponses HTTP
 
-error.invalidForm=Formualaire invalide, merci de corriger les données invalides
-error.retry=Une erreur est survenue... Vous pouvez rééesayer, on sait jamais !
+error.invalidForm=Formulaire invalide, merci de corriger les données invalides
+error.retry=Une erreur est survenue... Vous pouvez réessayer, on sait jamais !
 
 alert.confidential=Attention, ne publiez pas d''informations confidentielles !
 alert.dataStored=Vos données seront stockées sur un
@@ -15,7 +15,7 @@ alert.linkReady=Votre lien permanent est prêt :
 form.legend=Paramétrer ma réponse HTTP
 form.code=Code HTTP
 form.location=Redirection
-form.contentType=Content Type
+form.contentType=Type de contenu de la réponse
 form.customHeaders=Headers personnalisés
 form.body=Corps de la réponse
 
@@ -29,17 +29,17 @@ feedback=Une nouvelle idée ?
 
 overloaded=Mocky est légèrement surchargé en raison de son lancement officiel. Merci d'être patient, nous travaillons dur à améliorer la qualité du service.
 
-news1=Vous pouvez maintenant simuler un délais dans la réponse en ajoutant le paramètre <strong>?mocky-delay=100ms</strong> (<a href="https://github.com/scala/scala/blob/v2.9.3/src/library/scala/concurrent/duration/Duration.scala#L76">format</a> / max: 60s).
+news1=Vous pouvez maintenant simuler un délai dans la réponse en ajoutant le paramètre <strong>?mocky-delay=100ms</strong> (<a href="https://github.com/scala/scala/blob/v2.9.3/src/library/scala/concurrent/duration/Duration.scala#L76">format</a> / max: 60s).
 news2=Les requêtes de <em>Preflight</em> <strong>CORS</strong> sont automatiquement acceptées sans restriction d''origine.
 
 
 tips.header=Astuces
 
-tips.jsonp.title=Support Jsonp
-tips.jsonp.body=Ajoutez <code>?callback=myfunction</code> à votre url Mocky pour activer jsonp.
+tips.jsonp.title=Activer le support de JSON-P
+tips.jsonp.body=Ajoutez <code>?callback=myfunction</code> à votre url Mocky pour activer le support de JSON-P.
 
-tips.delay.title=Délais de rpéonse
-tips.delay.body=Ajoutez le paramètre <code>?mocky-delay=100ms</code> pour simulaire un délais de réponse (<a href="https://github.com/scala/scala/blob/v2.9.3/src/library/scala/concurrent/duration/Duration.scala#L76">format</a> / max: 60s).
+tips.delay.title=Délai de réponse
+tips.delay.body=Ajoutez le paramètre <code>?mocky-delay=100ms</code> pour simuler un délai de réponse (<a href="https://github.com/scala/scala/blob/v2.9.3/src/library/scala/concurrent/duration/Duration.scala#L76">format</a> / max: 60s).
 
 tips.cors.title=CORS
 tips.cors.body=Les requêtes CORS de Preflight sont automatiquement acceptées sans restriction d''origine
