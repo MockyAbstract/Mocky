@@ -5,6 +5,7 @@ import scala.concurrent.duration._
 import javax.inject.Inject
 
 import akka.pattern.after
+import play.api.Configuration
 import play.api.http.{ContentTypes, HeaderNames}
 import play.api.i18n.{I18nSupport, Lang}
 import play.api.libs.json._
