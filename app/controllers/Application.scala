@@ -14,7 +14,7 @@ import akka.actor.ActorSystem
 import models._
 import services.{IRepository, RepositoryDispatcher}
 
-class Application @Inject()(cc: ControllerComponents, dispatcher: RepositoryDispatcher)
+class Application @Inject()(config: Configuration, cc: ControllerComponents, dispatcher: RepositoryDispatcher)
     (implicit ec: ExecutionContext, actorSystem: ActorSystem)
     extends AbstractController(cc) with I18nSupport {
 
@@ -22,8 +22,9 @@ class Application @Inject()(cc: ControllerComponents, dispatcher: RepositoryDisp
 
   def index = Action { implicit req =>
     val isHttps = req.headers.get(HeaderNames.X_FORWARDED_PROTO).contains("https")
-
-    if (isHttps)
+    var skipHTTPS = config.get[Boolean]("mocky.skip-https")
+      
+    if (skipHTTPS || isHttps)
       Ok(views.html.index(Mocker.formMocker))
     else
       Redirect("https://www.mocky.io", 301)
