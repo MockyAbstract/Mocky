@@ -23,7 +23,7 @@ class Application @Inject()(config: Configuration, cc: ControllerComponents, dis
 
   def index = Action { implicit req =>
     val isHttps = req.headers.get(HeaderNames.X_FORWARDED_PROTO).contains("https")
-    var skipHTTPS = config.get[Boolean]("mocky.skip-https")
+    val skipHTTPS = config.get[Boolean]("mocky.skip-https")
       
     if (skipHTTPS || isHttps)
       Ok(views.html.index(Mocker.formMocker))
