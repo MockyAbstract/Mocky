@@ -15,7 +15,7 @@ libraryDependencies ++= Seq(
   ehcache,
   guice,
   filters,
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.16.0-play26",
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.15.1-play26",
   "org.julienrf" %% "play-jsmessages" % "3.0.0"
 )
 
