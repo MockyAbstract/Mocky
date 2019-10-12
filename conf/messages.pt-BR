@@ -3,8 +3,8 @@ Mocky=Mocky
 title.home=Mocky: Real HTTP mocking
 presentation.baseline=Teste sua API REST com respostas HTTP reais
 
-error.invalidForm=Formulário inválido, por favor, tente novamente  ;)
-error.retry=Ocorreu um erro... por favor, tente novamente !
+error.invalidForm=Formulário inválido, por favor, tente novamente ;)
+error.retry=Ocorreu um erro... por favor, tente novamente!
 
 alert.confidential=Não publique informações confidenciais!
 alert.dataStored=Seus dados serão gravados em um
@@ -26,6 +26,18 @@ btn.wait=Um anão está cuidando de seu desejo, por favor, aguarde...
 eg=Ex:
 feedback=Dê um feedback!
 
-overloaded=Mocky está <strong>um pouco sobrecarregado</strong> devido ao lançamento oficial, obrigado por ser paciente. Estamos trabalhando duro para melhorar a qualidade do serviço, uma <strong>nova arquitetura</strong> será lançada em breve!
+overloaded=O Mocky está <strong>um pouco sobrecarregado</strong> devido ao lançamento oficial, obrigado por ser paciente. Estamos trabalhando duro para melhorar a qualidade do serviço, uma <strong>nova arquitetura</strong> será lançada em breve!
 
-news.jsonp=Now with <strong>JSONP</strong> support, just add <strong>?callback=myfunction</strong> to your links.
+news1=Agora você pode simular um atraso adicionando <strong>?mocky-delay=100ms</strong> à sua requisição (<a href="https://github.com/scala/scala/blob/v2.9.3/src/library/scala/concurrent/duration/Duration.scala#L76">formato</a> / máx: 60s).
+news2=As requisições <em>Preflight</em> do <strong>CORS</strong> são automaticamente aceitas de qualquer origem.
+
+tips.header=Dicas
+
+tips.jsonp.title=Suporte a Jsonp
+tips.jsonp.body=Adicione <code>?callback=minhafuncao</code> à sua URL do mocky para habilitar jsonp.
+
+tips.delay.title=Atraso na resposta
+tips.delay.body=Adicione <code>?mocky-delay=100ms</code> para adicionar um atraso ao responder (<a href="https://github.com/scala/scala/blob/v2.9.3/src/library/scala/concurrent/duration/Duration.scala#L76">formato</a> / máx: 60s).
+
+tips.cors.title=CORS
+tips.cors.body=Todas as requisições de preflight do CORS preflight são automaticamente aceitas de qualquer origem.
