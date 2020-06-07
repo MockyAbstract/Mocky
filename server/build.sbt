@@ -4,6 +4,7 @@ import com.typesafe.sbt.packager.MappingsHelper.directory
 lazy val root = (project in file("."))
   .settings(
     name := "mocky-2020",
+    version in ThisBuild := "3.0.0",
     scalaVersion := "2.13.2",
     maintainer := "yotsumi.fx+github@gmail.com",
     resolvers += Resolver.bintrayRepo("tabmo", "maven"),
@@ -28,7 +29,3 @@ lazy val root = (project in file("."))
 
 // Automatically reload project when build files are modified
 Global / onChangedBuildSource := ReloadOnSourceChanges
-
-// Customize the sbt-release steps to follow gitflow process
-releaseProcess := SbtReleaseProcess.steps
-releaseIgnoreUntrackedFiles := true
