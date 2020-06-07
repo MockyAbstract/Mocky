@@ -8,7 +8,8 @@ import cats.data.Kleisli
 import cats.effect.concurrent.Ref
 import cats.effect.{ Clock, ContextShift, IO, Sync }
 import cats.implicits._
-import com.github.blemale.scaffeine.Scaffeine
+import com.github.blemale.scaffeine.{ AsyncLoadingCache, Scaffeine }
+import com.typesafe.scalalogging.StrictLogging
 import org.http4s._
 
 import io.mocky.config.ThrottleSettings
@@ -22,7 +23,7 @@ import io.mocky.utils.HttpUtil
   * If the wrapping is done, the response Content-Type is changed into `application/javascript`
   * and the appropriate jsonp callback is applied.
   */
-object IPThrottler {
+object IPThrottler extends StrictLogging {
 
   sealed abstract class TokenAvailability extends Product with Serializable
   case object TokenAvailable extends TokenAvailability
@@ -53,11 +54,11 @@ object IPThrottler {
       clock: Clock[IO],
       cs: ContextShift[IO]): TokenBucket = {
 
-      def getTime = clock.monotonic(NANOSECONDS)
+      def getTime: IO[Long] = clock.monotonic(NANOSECONDS)
 
       new TokenBucket {
 
-        val buckets = Scaffeine()
+        private val buckets: AsyncLoadingCache[String, Ref[IO, (Double, Long)]] = Scaffeine()
           .maximumSize(maxClients)
           .buildAsyncFuture[String, Ref[IO, (Double, Long)]](
             loader = _ => getTime.flatMap(time => Ref[IO].of((capacity.toDouble, time))).unsafeToFuture()
@@ -121,7 +122,8 @@ object IPThrottler {
     apply(config.amount, config.per, config.maxClients)(http)
   }
 
-  private def throttleResponse(retryAfter: Option[FiniteDuration]): Response[IO] = {
+  private def throttleResponse(retryAfter: Option[FiniteDuration], ip: String): Response[IO] = {
+    logger.warn(s"Access from ip $ip throttled")
     Response[IO](Status.TooManyRequests)
       .withHeaders(Headers.of(Header("X-Retry-After", retryAfter.map(_.toString()).getOrElse("unknown"))))
   }
@@ -138,7 +140,7 @@ object IPThrottler {
       val ip = HttpUtil.getIP(req)
       bucket.takeToken(ip).flatMap {
         case TokenAvailable => http(req)
-        case TokenUnavailable(retryAfter) => throttleResponse(retryAfter).pure[IO]
+        case TokenUnavailable(retryAfter) => throttleResponse(retryAfter, ip).pure[IO]
       }
     }
   }
