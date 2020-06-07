@@ -58,7 +58,9 @@ object Dependencies {
 
   val log = Seq(
     "ch.qos.logback" % "logback-classic" % LogbackV,
-    "org.slf4j" % "slf4j-api" % Slf4jV
+    "org.slf4j" % "slf4j-api" % Slf4jV,
+    "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
+    "io.chrisdavenport" %% "log4cats-slf4j" % "1.1.1"
   )
 
   val cache = Seq(

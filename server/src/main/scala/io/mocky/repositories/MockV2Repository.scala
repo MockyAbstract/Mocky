@@ -3,12 +3,14 @@ package io.mocky.repositories
 import scala.annotation.nowarn
 
 import cats.effect.IO
+import com.typesafe.scalalogging.StrictLogging
 import doobie._
 import doobie.implicits._
 import doobie.implicits.javasql._
 import doobie.postgres.circe.jsonb.implicits._
 import doobie.util.log.LogHandler
 
+import io.mocky.db.DoobieLogHandler
 import io.mocky.http.middleware.Admin
 import io.mocky.models.Gate
 import io.mocky.models.admin.Stats
@@ -19,9 +21,9 @@ import io.mocky.utils.DateUtil
 /**
   * Load legacy mocks from PG, that have been migrated from MongoDB
   */
-class MockV2Repository(transactor: Transactor[IO]) {
+class MockV2Repository(transactor: Transactor[IO]) extends DoobieLogHandler with StrictLogging {
 
-  implicit val log: LogHandler = LogHandler.jdkLogHandler
+  implicit val log: LogHandler = doobieLogHandler
 
   private object SQL {
     private val TABLE = Fragment.const("mocks_v2")

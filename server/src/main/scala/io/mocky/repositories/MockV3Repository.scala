@@ -4,6 +4,7 @@ import java.util.UUID
 import scala.annotation.nowarn
 
 import cats.effect.IO
+import com.typesafe.scalalogging.StrictLogging
 import doobie.implicits._
 import doobie.implicits.javasql._
 import doobie.postgres.circe.jsonb.implicits._
@@ -12,6 +13,7 @@ import doobie.util.log.LogHandler
 import doobie.{ Fragment, Transactor }
 
 import io.mocky.config.SecuritySettings
+import io.mocky.db.DoobieLogHandler
 import io.mocky.http.middleware.Admin
 import io.mocky.models.Gate
 import io.mocky.models.admin.Stats
@@ -21,9 +23,11 @@ import io.mocky.models.mocks.actions.{ CreateUpdateMock, DeleteMock }
 import io.mocky.models.mocks.feedbacks.MockCreated
 import io.mocky.utils.DateUtil
 
-class MockV3Repository(transactor: Transactor[IO], securityConfig: SecuritySettings) {
+class MockV3Repository(transactor: Transactor[IO], securityConfig: SecuritySettings)
+    extends DoobieLogHandler
+    with StrictLogging {
 
-  implicit val log: LogHandler = LogHandler.jdkLogHandler
+  implicit val log: LogHandler = doobieLogHandler
 
   private object SQL {
     private val TABLE = Fragment.const("mocks_v3")

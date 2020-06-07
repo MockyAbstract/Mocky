@@ -5,9 +5,10 @@
     </encoder>
   </appender>
 
-  <logger name="io.mocky" level="DEBUG" />
+  <logger name="io.mocky" level="INFO" />
+
   <logger name="doobie" level="WARN" />
-  <logger name="org.http4s.blaze" level="WARN" />
+  <logger name="org.http4s" level="WARN" />
 
   <root level="INFO">
     <appender-ref ref="STDOUT" />
