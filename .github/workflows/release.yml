@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
 
     steps:
@@ -53,8 +53,9 @@ jobs:
           node-version: '12.x'
       - name: CLIENT - Install dependencies
         run: cd client; yarn --frozen-lockfile
-      - name: CLIENT - Run tests
-        run: cd client; yarn test
+      # Disabled step because... there is not JS tests...
+      #      - name: CLIENT - Run tests
+      #        run: cd client; yarn test
       - name: CLIENT - Build production app
         run: cd client; yarn build
       - name: CLIENT - Zip build folder
@@ -71,7 +72,7 @@ jobs:
           draft: false
           prerelease: false
       - name: Upload API release artifact in Github Release
-        id: upload-release-asset
+        id: upload-api-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -81,7 +82,7 @@ jobs:
           asset_name: mocky-api-${{ steps.previoustag.outputs.tag }}.zip
           asset_content_type: application/zip
       - name: Upload CLIENT release artifact in Github Release
-        id: upload-release-asset
+        id: upload-front-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
