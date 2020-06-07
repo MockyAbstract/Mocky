@@ -1,0 +1,14 @@
+.expiration-select select {
+  font-size: 0.98em;
+  line-height: 0.98em;
+  color: #333;
+}
+
+small.form-text,
+span.form-text {
+  line-height: 18px;
+}
+
+.table td {
+  vertical-align: middle;
+}

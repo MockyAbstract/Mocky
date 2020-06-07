@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Mocky",
+      "Group": "Docker",
+      "Port": 5432,
+      "Username": "mocky",
+      "Host": "postgres",
+      "SSLMode": "prefer",
+      "MaintenanceDB": "postgres",
+      "Comment": "Password is 'mocky'"
+    }
+  }
+}

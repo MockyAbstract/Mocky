@@ -1,0 +1,33 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: mocky2020_postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: mocky
+      POSTGRES_PASSWORD: mocky
+      POSTGRES_DB: mocky
+    ports:
+      - "5432:5432"
+    networks:
+      - mocky
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: mocky2020_pgadmin4
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    networks:
+      - mocky
+    volumes:
+      - ./servers.json:/pgadmin4/servers.json
+    restart: unless-stopped
+
+networks:
+  mocky:
+    driver: bridge

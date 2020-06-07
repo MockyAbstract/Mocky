@@ -1,0 +1,15 @@
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>[%thread] %highlight(%-5level) %cyan(%logger) - %msg %n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="io.mocky" level="DEBUG" />
+  <logger name="doobie" level="WARN" />
+  <logger name="org.http4s.blaze" level="WARN" />
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT" />
+  </root>
+</configuration>

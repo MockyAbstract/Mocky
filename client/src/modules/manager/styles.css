@@ -1,0 +1,25 @@
+pre.resume {
+  margin: 5px;
+  padding: 2px;
+  text-align: left;
+  font-family: 'Source Code Pro';
+  font-size: 11px;
+  line-height: normal;
+  max-height: 200px;
+  width: 500px;
+  word-break: break-all;
+}
+
+a.icon-delete {
+  color: #dc3545;
+}
+
+span.icon-edit {
+  color: #6c757d;
+  opacity: 0.5;
+}
+
+button.btn--confirmation {
+  background: #dc3545 !important;
+  color: #fff !important;
+}

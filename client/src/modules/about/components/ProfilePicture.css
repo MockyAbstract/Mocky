@@ -1,0 +1,7 @@
+.profilePicture-round-double {
+  border-radius: 50px 0 50px 0px;
+}
+
+.profilePicture-shadow-leftBottom {
+  box-shadow: -10px 10px 40px rgba(0, 0, 0, 0.4);
+}

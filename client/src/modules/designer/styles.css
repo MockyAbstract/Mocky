@@ -1,0 +1,21 @@
+.bg--primary pre a:not(.btn) {
+  color: #2374ab;
+}
+
+.iconMocky--main {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.iconMocky--sec {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.btn-cta-pub {
+  width: 215px;
+}
+
+.btn-cta-pub svg {
+  vertical-align: -0.325em;
+}

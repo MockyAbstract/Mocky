@@ -1,0 +1,26 @@
+.textarea--code {
+  font-family: 'Source Code Pro';
+  font-size: 12px;
+  line-height: normal;
+  padding: 10px;
+  transition: none;
+  -webkit-transition: none;
+}
+
+.textarea--code::placeholder {
+  font-family: 'Source Code Pro';
+  font-size: 12px;
+  line-height: normal;
+}
+
+input.input--error,
+textarea.input--error {
+  border-color: #dc3545;
+}
+
+.user-select-all {
+  -webkit-user-select: all !important;
+  -moz-user-select: all !important;
+  -ms-user-select: all !important;
+  user-select: all !important;
+}
