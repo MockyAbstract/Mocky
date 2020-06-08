@@ -24,7 +24,7 @@ object Jsonp {
 
   // A regex to match a valid javascript function name to shield the client from some jsonp related attacks
   private val ValidCallback =
-    """^((?!(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)$)[$A-Z_a-z-﹏０-９＿]*)$""".r
+    """^((?!(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)$)[$A-Z_a-z-﹏0-９＿]*)$""".r
 
   def apply[F[_]: Applicative, G[_]: Functor](http: Http[F, G]): Http[F, G] = apply(DEFAULT_PARAMETER)(http)
 
