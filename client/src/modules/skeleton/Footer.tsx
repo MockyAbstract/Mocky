@@ -35,8 +35,14 @@ export default () => (
         <div className="col-sm-6 text-right text-center-xs">
           <ul className="social-list list-inline list--hover">
             <li>
+              <a href="https://github.com/julien-lafont/Mocky" rel="noopener noreferrer" target="_blank">
+                Be an <strong>awesome Hacker</strong>, fork me <i className="socicon socicon-github icon icon--xs"></i>
+              </a>
+            </li>
+            <li>
               <a href="https://www.twitter.com/julien_lafont" rel="noopener noreferrer" target="_blank">
-                Made with <code>love</code> by @julien_lafont <i className="socicon socicon-twitter icon icon--xs"></i>
+                Made with <strong>love</strong> by @julien_lafont{' '}
+                <i className="socicon socicon-twitter icon icon--xs"></i>
               </a>
             </li>
           </ul>

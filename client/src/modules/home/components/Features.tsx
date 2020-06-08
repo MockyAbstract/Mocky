@@ -43,8 +43,12 @@ export default () => (
             <i className="icon color--primary icon-Code-Window icon--sm"></i>
             <h5>Open Source&nbsp;</h5>
             <p>
-              Mocky is distributed with Apache 2 licence on Github. Ready-to-use distributions are available to host
-              your own Mocky instance.
+              Mocky is distributed with Apache 2 licence on{' '}
+              <a href="https://github.com/julien-lafont/Mocky" rel="noreferrer noopener" target="_blank">
+                Github
+              </a>
+              . Community contributions are welcome! Ready-to-use distributions will be available to host your own Mocky
+              instance.
             </p>
           </div>
         </div>

@@ -20,19 +20,21 @@ export default () => (
                 </a>
               </span>
             </div>
-            <p className="lead">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel turpis dignissim, vestibulum neque
-              pellentesque, consequat est. Nunc turpis turpis, porta id nibh non, ullamcorper fringilla nisi.
-            </p>
+            <p className="lead">Web alchemist and lazy Open Source contributor.</p>
             <ul className="social-list list-inline list--hover">
               <li className="list-inline-item">
                 <a href="https://twitter.com/julien_lafont" rel="noreferrer noopener" target="_blank">
-                  <i className="socicon socicon-twitter icon icon--xs"></i>
+                  <i className="socicon socicon-twitter icon icon--sm"></i>
                 </a>
               </li>
               <li className="list-inline-item">
                 <a href="https://www.linkedin.com/in/julienlafont/" rel="noreferrer noopener" target="_blank">
-                  <i className="socicon socicon-linkedin icon icon--xs"></i>
+                  <i className="socicon socicon-linkedin icon icon--sm"></i>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a href="https://www.github.com/julien-lafont/" rel="noreferrer noopener" target="_blank">
+                  <i className="socicon socicon-github icon icon--sm"></i>
                 </a>
               </li>
             </ul>

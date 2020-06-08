@@ -27,3 +27,9 @@
 .socicon-twitter:before {
   content: '\e08d';
 }
+.socicon-github:before {
+  content: '\e032';
+}
+.socicon-linkedin:before {
+  content: '\e04c';
+}
