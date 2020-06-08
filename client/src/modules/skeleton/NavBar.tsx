@@ -6,7 +6,7 @@ import logo from './assets/logo-dark.png';
 export default () => (
   <div className="nav-container">
     <div>
-      <nav className="bar bar-1 hidden-xs">
+      <nav className="bar bar-1">
         <div className="container">
           <div className="row">
             <div className="col-lg-1 hidden-xs col-md-3">
@@ -18,7 +18,7 @@ export default () => (
             </div>
             <div className="col-lg-11 col-md-12 text-right text-left-xs text-left-sm">
               <div className="bar__module">
-                <NavLink to="/manage" className="btn btn--sm type--uppercase">
+                <NavLink to="/manage" className="btn btn--sm type--uppercase hidden-xs">
                   <span className="btn__text">Manage my mocks</span>
                 </NavLink>
 
