@@ -44,13 +44,17 @@ object Jsonp {
     val end = EndJsonp
     val jsonpBody = chunk(begin) ++ resp.body ++ chunk(end)
 
-    val newLengthHeaderOption = resp.headers.get(`Content-Length`).flatMap { old =>
-      old.modify(_ + begin.size + end.size)
+    val newHeaders = resp.headers.get(`Content-Length`) match {
+      case None => resp.headers
+      case Some(oldContentLength) =>
+        resp.headers
+          .filterNot(_.is(`Content-Length`))
+          .put(`Content-Length`.unsafeFromLong(oldContentLength.length + begin.size + end.size))
     }
 
     resp
       .copy(body = jsonpBody)
-      .transformHeaders(h => Headers(h.toList ++ newLengthHeaderOption.toList))
+      .withHeaders(newHeaders)
       .withContentType(`Content-Type`(MediaType.application.javascript))
   }
 
