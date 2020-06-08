@@ -24,3 +24,8 @@ textarea.input--error {
   -ms-user-select: all !important;
   user-select: all !important;
 }
+
+.logo-link:hover img {
+  filter: invert(25%) sepia(46%) saturate(894%) hue-rotate(161deg) brightness(94%) contrast(88%);
+  -webkit-filter: invert(25%) sepia(46%) saturate(894%) hue-rotate(161deg) brightness(94%) contrast(88%);
+}
