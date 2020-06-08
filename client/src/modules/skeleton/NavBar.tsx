@@ -11,7 +11,7 @@ export default () => (
           <div className="row">
             <div className="col-lg-1 hidden-xs col-md-3">
               <div className="bar__module">
-                <a href="/">
+                <a href="/" className="logo-link">
                   <img className="logo" alt="logo" src={logo} style={{ maxHeight: '30px' }} />
                 </a>
               </div>
