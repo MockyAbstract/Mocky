@@ -1,3 +1,4 @@
 target
 server/.idea
-.git-old
+server/src/main/resources/application.clever-cloud.conf
+
