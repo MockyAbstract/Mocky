@@ -40,5 +40,6 @@ jobs:
           node-version: '12.x'
       - name: Install dependencies
         run: cd client; yarn --frozen-lockfile
-      - name: Run tests
-        run: cd client; yarn test
+      # Disabled step because... there is not JS tests...
+      #      - name: Run tests
+      #        run: cd client; yarn test
