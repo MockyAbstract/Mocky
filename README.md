@@ -38,12 +38,6 @@ Mocky is currently hosted on [https://www.clever-cloud.com/en/](Clever-Cloud).
 
 > Clever Cloud helps companies and IT professionals to achiveve software delivery faster, reduce their feedback loop, focus on their core value and stop worrying about their hosting infrastructure by providing a solution for application sustainability.
 
-#### Mock your HTTP responses to test your REST API
-
-Mocky is a simple app which allows to generate custom HTTP responses. <br />
-It's helpful when you have to request a build-in-progress WS, when you want to mock the backend response in a singleapp,
-or when you want to test your WS client.
-
 ## Contributors
 
 - [Julien lafont](https://twitter.com/julien_lafont)
