@@ -4,7 +4,7 @@ import com.typesafe.sbt.packager.MappingsHelper.directory
 lazy val root = (project in file("."))
   .settings(
     name := "mocky-2020",
-    version in ThisBuild := "3.0.0",
+    version in ThisBuild := "3.0.3",
     scalaVersion := "2.13.2",
     maintainer := "yotsumi.fx+github@gmail.com",
     resolvers += Resolver.bintrayRepo("tabmo", "maven"),
