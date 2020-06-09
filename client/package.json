@@ -52,7 +52,7 @@
     "redux-localstorage-simple": "^2.2.0",
     "typescript": "~3.9.5",
     "word-wrap": "^1.2.3",
-    "yup": "^0.29.0"
+    "yup": "^0.29.1"
   },
   "scripts": {
     "start:dev": "react-scripts start",
