@@ -50,7 +50,7 @@
     "react-use": "^15.1.1",
     "redux": "^4.0.5",
     "redux-localstorage-simple": "^2.2.0",
-    "typescript": "~3.8.2",
+    "typescript": "~3.9.5",
     "word-wrap": "^1.2.3",
     "yup": "^0.29.0"
   },
