@@ -24,9 +24,7 @@ export default () => (
             <li>
               <a href="https://www.buymeacoffee.com/julienlafont">
                 <span className="h6 type--uppercase">
-                  <p>
-                    You like it? Buy me a <span className="type--strikethrough">beer</span> vegetable 🥦.
-                  </p>
+                  <p>You like it? Buy me a coffee!</p>
                 </span>
               </a>
             </li>
