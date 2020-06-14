@@ -52,15 +52,15 @@ export default () => (
               <h5>How many mocks can I store? How long do they last?</h5>
               <p>
                 You can create as many mocks as you want, and they will last forever. There is just one rule: call it at
-                least once time per year to keep it alive!
+                least once every year to keep it alive!
               </p>
             </div>
             <div className="text-block">
               <h5>What is mocky SLA?</h5>
               <p>
                 <code>Mocky do NOT commit for any Service-level agreement</code>. Everything is done to provide the best
-                service quality, but I don't guarantee the sustainability or the stability of the application. If you
-                need guarantees, you have to host your own Mocky instance.
+                service quality, but I don't guarantee the longevity or the stability of the application. If you need
+                guarantees, you have to host your own Mocky instance.
               </p>
             </div>
           </div>
