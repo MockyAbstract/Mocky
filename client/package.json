@@ -27,7 +27,7 @@
     "@types/react-select": "^3.0.13",
     "@types/react-textarea-autosize": "^4.3.5",
     "@types/word-wrap": "^1.2.1",
-    "@types/yup": "^0.29.2",
+    "@types/yup": "^0.29.3",
     "connect-history-api-fallback": "^1.6.0",
     "express": "^4.17.1",
     "express-sslify": "^1.2.0",
