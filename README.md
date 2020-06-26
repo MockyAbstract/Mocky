@@ -34,7 +34,7 @@ See the [client/README.md](https://github.com/julien-lafont/Mocky/blob/master/cl
 
 ### Hosting
 
-Mocky is currently hosted on [https://www.clever-cloud.com/en/](Clever-Cloud).
+Mocky is currently hosted on [Clever-Cloud](https://www.clever-cloud.com/en/).
 
 > Clever Cloud helps companies and IT professionals to achiveve software delivery faster, reduce their feedback loop, focus on their core value and stop worrying about their hosting infrastructure by providing a solution for application sustainability.
 
