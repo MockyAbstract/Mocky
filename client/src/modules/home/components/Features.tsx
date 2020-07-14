@@ -30,7 +30,7 @@ export default () => (
         <div className="col-md-6 col-lg-3">
           <div className="feature feature-6">
             <i className="icon color--primary icon-Chemical icon--sm"></i>
-            <h5>Developper Friendly</h5>
+            <h5>Developer Friendly</h5>
             <p>
               Mocky is compatible with JS, Mobile and Server applications, featuring CORS, JSONP and GZIP responses.
               <br />
