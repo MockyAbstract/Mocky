@@ -37,7 +37,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2.1.1
         with:
-          node-version: '12.x'
+          node-version: '14.x'
       - name: Install dependencies
         run: cd client; yarn --frozen-lockfile
       # Disabled step because... there is not JS tests...
