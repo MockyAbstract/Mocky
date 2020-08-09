@@ -1,13 +1,12 @@
 package io.mocky
 
 import scala.concurrent.ExecutionContext.Implicits.global
-
+import scala.concurrent.duration._
 import cats.effect._
 import doobie.hikari.HikariTransactor
 import doobie.util.ExecutionContexts
 import org.http4s.server.blaze.BlazeServerBuilder
 import org.log4s._
-
 import io.mocky.config.Config
 import io.mocky.db.Database
 
@@ -53,6 +52,8 @@ object HttpServer {
         BlazeServerBuilder[IO](global)
           .bindHttp(resources.config.server.port, resources.config.server.host)
           .withHttpApp(routing)
+          .withIdleTimeout(resources.config.settings.sleep.maxDelay.plus(5.seconds))
+          .withResponseHeaderTimeout(resources.config.settings.sleep.maxDelay.plus(4.seconds))
           .serve
           .compile
           .drain
