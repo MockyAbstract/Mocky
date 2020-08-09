@@ -85,5 +85,8 @@
     "eslint-plugin-react": "7.20.0",
     "eslint-plugin-react-hooks": "2.5.1",
     "prettier": "^2.0.5"
+  },
+  "engines": {
+    "node": "^14"
   }
 }
