@@ -26,6 +26,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/react-select": "^3.0.13",
     "@types/react-textarea-autosize": "^4.3.5",
+    "@types/unique-random-array": "^2.0.1",
     "@types/word-wrap": "^1.2.1",
     "@types/yup": "^0.29.4",
     "connect-history-api-fallback": "^1.6.0",
@@ -51,6 +52,7 @@
     "redux": "^4.0.5",
     "redux-localstorage-simple": "^2.2.0",
     "typescript": "~3.9.5",
+    "unique-random-array": "^2.0.0",
     "word-wrap": "^1.2.3",
     "yup": "^0.29.1"
   },
@@ -63,7 +65,9 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,css,json}\""
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app"
+    ]
   },
   "browserslist": {
     "production": [
