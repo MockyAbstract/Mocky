@@ -12,6 +12,7 @@ import { selectLatestMock, selectCountMocks } from '../../redux/mocks/slice';
 import DesignerTitle from './components/DesignerTitle';
 import NewMockFeatures from './components/NewMockFeatures';
 import Pub from './components/Pub';
+import SponsoConfirmation from '../sponso-abstract/SponsoConfirmation';
 
 const NewMockConfirmation = () => {
   const [copied, setCopied] = useState(0);
@@ -19,6 +20,7 @@ const NewMockConfirmation = () => {
   const nbMocks = useSelector(selectCountMocks);
 
   const isPromotingActivated = process.env.REACT_APP_SHOW_PROMOTING_PANEL === 'true';
+  const isSponsoringActivated = process.env.REACT_APP_SHOW_SPONSORING === 'true';
 
   if (!mock) {
     return <Redirect to="/design" />;
@@ -28,7 +30,11 @@ const NewMockConfirmation = () => {
     <>
       <DesignerTitle />
 
-      {isPromotingActivated && (nbMocks === 2 || nbMocks % 4 === 0) && <Pub />}
+      {/* Display self-advertising panel only if promoting is activated and sponsoring is not activated */}
+      {!isSponsoringActivated && isPromotingActivated && (nbMocks === 2 || nbMocks % 4 === 0) && <Pub />}
+
+      {/* Display sponsoring panel if sponsoring is enabled */}
+      {isSponsoringActivated && (nbMocks === 2 || nbMocks % 4 === 0) && <SponsoConfirmation />}
 
       <section className="space--xxs bg--primary">
         <div className="container">

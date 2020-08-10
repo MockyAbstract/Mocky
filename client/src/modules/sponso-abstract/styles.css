@@ -1,0 +1,32 @@
+footer .row.sponsoring {
+  margin: 10px 0;
+  padding: 5px;
+  background-color: #fafafa;
+  border: 1px solid #ebebeb;
+}
+footer .row.sponsoring a {
+  color: #2374ab !important;
+}
+
+.feature-large.sponsoring a {
+  font-weight: normal;
+}
+
+.feature-large.sponsoring h3 {
+  margin-top: 0em;
+  margin-bottom: 0;
+}
+
+.feature-large.sponsoring h4 {
+  margin-top: 0;
+  margin-bottom: 0.6em;
+  font-style: italic;
+}
+
+.feature-large.sponsoring p {
+  margin-bottom: 0.5em;
+}
+
+.feature-large.sponsoring a.btn:hover {
+  color: white;
+}

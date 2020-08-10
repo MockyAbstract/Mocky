@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import SponsoFooter from '../sponso-abstract/SponsoFooter';
 
 export default () => (
   <footer className="text-center-xs space--xs">
@@ -30,6 +31,7 @@ export default () => (
             </li>
           </ul>
         </div>
+
         <div className="col-sm-6 text-right text-center-xs">
           <ul className="social-list list-inline list--hover">
             <li>
@@ -46,6 +48,7 @@ export default () => (
           </ul>
         </div>
       </div>
+      <SponsoFooter />
       <div className="row">
         <div className="col-sm-4">
           <span className="type--fine-print">

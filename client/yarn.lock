@@ -1816,6 +1816,13 @@
     "@types/testing-library__dom" "*"
     pretty-format "^25.1.0"
 
+"@types/unique-random-array@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/unique-random-array/-/unique-random-array-2.0.1.tgz#a4aa96784aee381b60551b23b50b04e577689019"
+  integrity sha512-EdVAuAtTGN1N9W7+QEAqT7BpL9SjsyJ9gDcnvW5x6iYfvbmb0ISjWOiBYh8YoLAttVmf1W0bSK3eM+8IVZp9zw==
+  dependencies:
+    unique-random-array "*"
+
 "@types/word-wrap@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@types/word-wrap/-/word-wrap-1.2.1.tgz#b4918ea7330e6b09b87796d62b825ae38437bc51"
@@ -11096,6 +11103,18 @@ unique-filename@^1.1.1:
   integrity sha512-Vmp0jIp2ln35UTXuryvjzkjGdRyf9b2lTXuSYUiPmzRcl3FDtYqAwOnTJkAngD9SWhnoJzDbTKwaOrZ+STtxNQ==
   dependencies:
     unique-slug "^2.0.0"
+
+unique-random-array@*, unique-random-array@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/unique-random-array/-/unique-random-array-2.0.0.tgz#9e639b1a9dc141e97350a6fc6f17da4b0717b1ad"
+  integrity sha512-xR87O95fZ7hljw84J8r1YDXrvffPLWN513BNOP4Bv0KcgG5dyEUrHwsvP7mVAOKg4Y80uqRbpUk0GKr8il70qg==
+  dependencies:
+    unique-random "^2.1.0"
+
+unique-random@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/unique-random/-/unique-random-2.1.0.tgz#7a8413da5176d028567168b57125ac5c0cec5c25"
+  integrity sha512-iQ1ZgWac3b8YxGThecQFRQiqgk6xFERRwHZIWeVVsqlbmgCRl0PY13R4mUkodNgctmg5b5odG1nyW/IbOxQTqg==
 
 unique-slug@^2.0.0:
   version "2.0.2"
