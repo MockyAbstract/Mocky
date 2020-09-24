@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2.3.0
+      - uses: actions/checkout@v2.3.3
 
       - name: Fetch tags
         uses: fnkr/github-action-git-bash@v1.1
