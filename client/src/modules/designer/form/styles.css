@@ -1,6 +1,7 @@
 .expiration-select select {
   font-size: 0.98em;
-  line-height: 0.98em;
+  padding-top: 0;
+  padding-bottom: 0;
   color: #333;
 }
 
