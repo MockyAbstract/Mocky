@@ -21,6 +21,11 @@ export default () => (
               </span>
             </div>
             <p className="lead">Web alchemist and lazy Open Source contributor.</p>
+            <p>
+              <a href="https://www.buymeacoffee.com/julienlafont">
+                <img alt="buy me a coffee" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=julienlafont&button_colour=FF5F5F&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" />
+                </a>
+            </p>
             <ul className="social-list list-inline list--hover">
               <li className="list-inline-item">
                 <a href="https://twitter.com/julien_lafont" rel="noreferrer noopener" target="_blank">
