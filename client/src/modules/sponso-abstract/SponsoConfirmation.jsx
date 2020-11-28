@@ -24,7 +24,7 @@ export default () => {
           </div>
           <div className="col-lg-7 col-md-7 col-xs-12 col-sm-12">
             <h3>
-              Mocky is sponsored by{' '}
+              Check out{' '}
               <a href="https://www.abstractapi.com/" target="_blank" rel="noopener">
                 Abstract API
               </a>
