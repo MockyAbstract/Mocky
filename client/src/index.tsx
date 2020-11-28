@@ -10,7 +10,6 @@ import * as serviceWorker from './serviceWorker';
 import GA from './services/Analytics/GA';
 
 GA.initialize();
-console.log(process.env);
 
 ReactDOM.render(
   <Provider store={store}>
