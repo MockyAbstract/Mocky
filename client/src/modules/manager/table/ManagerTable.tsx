@@ -107,7 +107,7 @@ const ManagerTable = (props: { mocks: MockStored[] }) => (
 
           <div className="alert bg--primary">
             <div className="alert__body">
-              <strong>Warning</strong>: These data are stored on your computer. It will be lost if you clean your
+              <strong>Warning</strong>: This data is stored on your computer. It will be lost if you clean your
               browser cache (local-storage).
             </div>
           </div>
