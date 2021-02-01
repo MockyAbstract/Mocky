@@ -8,7 +8,7 @@ export default () => (
         <div className="col-md-10 col-lg-8">
           <h1>Mocky</h1>
           <p className="lead">
-            <Typed strings={['The world easiest &amp; fastest tool belts to mock your APIs']} typeSpeed={40} />
+            <Typed strings={['The world&#39;s easiest &amp; fastest tool belts to mock your APIs']} typeSpeed={40} />
           </p>
         </div>
       </div>
