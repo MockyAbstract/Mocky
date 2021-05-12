@@ -73,7 +73,7 @@ jobs:
           prerelease: false
       - name: Upload API release artifact in Github Release
         id: upload-api-release-asset
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -83,7 +83,7 @@ jobs:
           asset_content_type: application/zip
       - name: Upload CLIENT release artifact in Github Release
         id: upload-front-release-asset
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
