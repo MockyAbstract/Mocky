@@ -48,7 +48,7 @@ jobs:
           target: mocky-api-release.zip
 
       - name: CLIENT - Use Node.js
-        uses: actions/setup-node@v2.1.2
+        uses: actions/setup-node@v2.1.5
         with:
           node-version: '14.x'
       - name: CLIENT - Install dependencies
