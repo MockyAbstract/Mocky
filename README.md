@@ -42,6 +42,10 @@ Mocky is currently hosted on [Clever-Cloud](https://www.clever-cloud.com/en/).
 
 - [Julien lafont](https://twitter.com/julien_lafont)
 
+## Contributor over time
+
+[![Contributor over time](https://contributor-graph-api.apiseven.com/contributors-svg?chart=contributorOverTime&repo=julien-lafont/Mocky)](https://www.apiseven.com/en/contributor-graph?chart=contributorOverTime&repo=julien-lafont/Mocky)
+
 ## License
 
 Mocky is licensed under the A[pache License, Version 2.0](https://github.com/julien-lafont/Mocky/blob/master/LICENSE) (the “License”); you may not use this software except in compliance with the License.
