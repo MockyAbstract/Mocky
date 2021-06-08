@@ -8,7 +8,7 @@ object Dependencies {
     val FlywayV = "6.4.2"
     val PostgresqlV = "42.2.12"
     val CirceV = "0.13.0"
-    val CirceValidationV = "0.1.0"
+    val CirceValidationV = "0.1.1"
     val PureConfigV = "0.12.3"
     val LogbackV = "1.2.3"
     val ScalaTestV = "3.1.2"
