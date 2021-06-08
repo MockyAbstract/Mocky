@@ -7,7 +7,7 @@ lazy val root = (project in file("."))
     version in ThisBuild := "3.0.3",
     scalaVersion := "2.13.2",
     maintainer := "yotsumi.fx+github@gmail.com",
-    resolvers += Resolver.bintrayRepo("tabmo", "maven"),
+    resolvers += "Tabmo Myget Public" at "https://www.myget.org/F/tabmo-public/maven/",
     libraryDependencies ++= (http4s ++ circe ++ doobie ++ pureconfig ++ log ++ cache ++ enumeratum ++ scalatest),
     addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3"),
     addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1")
