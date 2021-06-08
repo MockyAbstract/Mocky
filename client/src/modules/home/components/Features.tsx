@@ -11,7 +11,7 @@ export default () => (
             <h5>Free &amp; Unlimited</h5>
             <p>
               Mocky is free to use, no ads, no hidden subscriptions or service limits. Your mocks will be available{' '}
-              <strong>forever</strong> if you call it at least on time per year, but without any{' '}
+              <strong>forever</strong> if you call it at least one time per year, but without any{' '}
               <NavLink to="/faq">guarantee</NavLink>.
             </p>
           </div>
