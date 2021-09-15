@@ -1740,10 +1740,10 @@
     hoist-non-react-statics "^3.3.0"
     redux "^4.0.0"
 
-"@types/react-router-dom@^5.1.5":
-  version "5.1.5"
-  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.1.5.tgz#7c334a2ea785dbad2b2dcdd83d2cf3d9973da090"
-  integrity sha512-ArBM4B1g3BWLGbaGvwBGO75GNFbLDUthrDojV2vHLih/Tq8M+tgvY1DSwkuNrPSwdp/GUL93WSEpTZs8nVyJLw==
+"@types/react-router-dom@^5.1.9":
+  version "5.1.9"
+  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.1.9.tgz#e8a8f687351ecc8c68bb4161d7e4b9df4994416e"
+  integrity sha512-Go0vxZSigXTyXx8xPkGiBrrc3YbBs82KE14WENMLS6TSUKcRFSmYVbL19zFOnNFqJhqrPqEs2h5eUpJhSRrwZw==
   dependencies:
     "@types/history" "*"
     "@types/react" "*"
