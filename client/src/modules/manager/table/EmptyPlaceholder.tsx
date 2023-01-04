@@ -1,18 +1,15 @@
 import React from 'react';
-import background from './assets/sand-bg.jpg';
 import { Link } from 'react-router-dom';
+import background from './assets/sand-bg.jpg';
 
 export default () => (
   <section className="cover height-60 imagebg text-center" data-overlay="3">
-    <div
+    <img
+      alt="background"
+      src={background}
       className="background-image-holder"
-      style={{
-        background: `url(${background})`,
-        opacity: 1,
-      }}
-    >
-      <img alt="background" src={background} />
-    </div>
+      style={{ opacity: 1 }}
+    />
     <div className="container pos-vertical-center">
       <div className="row">
         <div className="col-md-12">
