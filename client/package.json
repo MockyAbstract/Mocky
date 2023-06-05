@@ -49,7 +49,7 @@
     "react-textarea-autosize": "^8.0.1",
     "react-typed": "^1.2.0",
     "react-use": "^15.3.4",
-    "redux": "^4.0.5",
+    "redux": "^4.2.1",
     "redux-localstorage-simple": "^2.2.0",
     "typescript": "~3.9.5",
     "unique-random-array": "^2.0.0",
