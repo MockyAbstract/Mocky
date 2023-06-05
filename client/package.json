@@ -50,7 +50,7 @@
     "react-typed": "^1.2.0",
     "react-use": "^15.3.4",
     "redux": "^4.0.5",
-    "redux-localstorage-simple": "^2.2.0",
+    "redux-localstorage-simple": "^2.5.1",
     "typescript": "~3.9.5",
     "unique-random-array": "^2.0.0",
     "word-wrap": "^1.2.3",
